@@ -48,3 +48,42 @@ for i in range(50):
 with open("decoded_final.bin", "wb") as f:
     f.write(data)
 ```
+
+## Admin.php
+```
+$gobuster dir -u http://3.145.206.165 -w /usr/share/wordlists/dirb/common.txt -t 50
+===============================================================
+Gobuster v3.6
+by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
+===============================================================
+[+] Url:                     http://3.145.206.165
+[+] Method:                  GET
+[+] Threads:                 50
+[+] Wordlist:                /usr/share/wordlists/dirb/common.txt
+[+] Negative Status codes:   404
+[+] User Agent:              gobuster/3.6
+[+] Timeout:                 10s
+===============================================================
+Starting gobuster in directory enumeration mode
+===============================================================
+/.git/HEAD            (Status: 200) [Size: 23]
+/admin.php            (Status: 200) [Size: 472]
+/includes             (Status: 301) [Size: 169] [--> http://3.145.206.165/includes/]
+/index.php            (Status: 301) [Size: 0] [--> http://3.145.206.165/]
+/robots.txt           (Status: 200) [Size: 8135]
+/wp-admin             (Status: 301) [Size: 169] [--> http://3.145.206.165/wp-admin/]
+/wp-includes          (Status: 301) [Size: 169] [--> http://3.145.206.165/wp-includes/]
+/wp-content           (Status: 301) [Size: 169] [--> http://3.145.206.165/wp-content/]
+Progress: 4614 / 4615 (99.98%)
+/xmlrpc.php           (Status: 405) [Size: 42]
+===============================================================
+Finished
+```
+
+`http://3.145.206.165/admin.php`
+
+I tried Login with `a' or '1' ='1`.
+
+With inspect element, I got the key `key{b4280c2dcd3f38c5024c813b14bb3cf188cf8a69400578aa00dad9d2f57fd6ab}`
+
+<!-- Hmmm, the plot thickens... key{b4280c2dcd3f38c5024c813b14bb3cf188cf8a69400578aa00dad9d2f57fd6ab}-->
