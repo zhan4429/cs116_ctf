@@ -21,6 +21,7 @@ The code seems to be encode. I asked ChatGPT what encoded algorthim is used. Cha
 
 ![Rotten Image](rotten.png)
 
+
 ## A Flag Is Here…
 ### Problem
 ```
@@ -49,6 +50,14 @@ with open("decoded_final.bin", "wb") as f:
     f.write(data)
 ```
 
+<<<<<<< HEAD
+## Challenge 8: A whole bunch of CS40 homeworks found
+![cs40 flag](cs40_flag.png)
+
+
+## Challenge 10: About my friend bobo
+![bobo flag](bobo_flag.png)
+=======
 ## Admin.php
 ```
 $gobuster dir -u http://3.145.206.165 -w /usr/share/wordlists/dirb/common.txt -t 50
@@ -87,3 +96,4 @@ I tried Login with `a' or '1' ='1`.
 With inspect element, I got the key `key{b4280c2dcd3f38c5024c813b14bb3cf188cf8a69400578aa00dad9d2f57fd6ab}`
 
 <!-- Hmmm, the plot thickens... key{b4280c2dcd3f38c5024c813b14bb3cf188cf8a69400578aa00dad9d2f57fd6ab}-->
+
