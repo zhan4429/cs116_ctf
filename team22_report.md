@@ -93,7 +93,7 @@ The code is ROT13-encoded message. I used rot13-decoder (https://cryptii.com/pip
 
 ### Problem
 
-Xxxxx
+There must be another flag on the blog... 
 
 ### Solution
 
@@ -143,20 +143,183 @@ Once endpoint was uncovered using brute force adding /.git/ to the url we found 
 One of which was a FLAG file once downloaded and viewed in Notepad exposed the flag. 
 
 
+## Challenge 4: All your base64 are belong to us
+
+### Problem
+
+Find flag. 
+Hints: Base64, bad grammar
+
+### Solution
+
+#### Screenshot of flag
+
+
+#### Exact Location
+
+
+#### Method
+
+
 ## Challenge 5: Don't ask me if something looks wrong. Look again, pay careful attention.
+
+### Problem
+
+
+### Solution
+
+#### Screenshot of flag
+
+
+
+#### Exact Location
+
+
+#### Method
+
 
 ## Challenge 6: Don't ask me if something looks wrong. Look again, pay really careful attention.
 
+### Problem
+
+
+### Solution
+
+#### Screenshot of flag
+
+
+
+#### Exact Location
+
+
+#### Method
+
 ## Challenge 7: That readme is peculiar...
+
+### Problem
+
+
+### Solution
+
+#### Screenshot of flag
+
+
+
+#### Exact Location
+
+
+#### Method
 
 ## Challenge 8: A whole bunch of CS40 homeworks found
 
+### Problem
+
+
+### Solution
+
+#### Screenshot of flag
+
+
+
+#### Exact Location
+
+
+#### Method
+
 ![cs40 flag](cs40_flag.png)
+
 
 ## Challenge 10: About my friend bobo
 
+### Problem
+
+Bo Bo is the only other user besides admin (Ming) that has posted. Also the only friend of admin.
+Location of the flag will have something to do with Bo Bo
+
+### Solution
+
+#### Screenshot of flag
+
 # ![bobo flag](bobo_flag.png)
+
+#### Exact Location
+
+The location of the flag was saved as a draft in bobo's login dashboard.
+
+#### Method
+
+Used WPScan to identify three users: admin, bobo, and Bo Bo
+
+wpscan --url http://3.145.206.165 --passwords rockyou.txt --usernames admin,bobo,Bo Bo --api-token XXXXXX
+
+Once the password was cracked we used the credentials: bobo, Football
+on the wp-login page http://3.145.206.165/wp-login.php to login as bobo.
+
 
 ## Challenge 11: XSS gone sinister.
 
+### Problem
+
+A little bit of sneaky XSS will get us there. 
+
+### Solution
+
+#### Screenshot of flag
+
+
+
+#### Exact Location
+
+
+#### Method
+
 ## Challenge 12: Where are the robots? (Yucheng Zhang)
+
+### Problem
+
+These are not the droids you're looking for...
+
+### Solution
+
+#### Screenshot of flag
+
+
+
+#### Exact Location
+
+
+#### Method
+
+## Challenge 13: LOLCAP
+
+### Problem
+
+Download the LOLCAP.pcap file and find flag
+Packets in pcap file are all malformed
+
+### Solution
+
+#### Screenshot of flag
+
+
+
+#### Exact Location
+
+
+#### Method
+
+## Challenge 13: notuber
+
+### Problem
+
+
+### Solution
+
+#### Screenshot of flag
+
+
+
+#### Exact Location
+
+
+#### Method
