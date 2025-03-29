@@ -7,17 +7,64 @@
 
 ## Unsolved chanllenges:
 
-- Challenge 4: All your base64 are belong to us. 
+- Challenge 4: All your base64 are belong to us.
 
-- Challenge 9: Buried in the dump, redux: needle in the haystack. 
+- Challenge 9: Buried in the dump, redux: needle in the haystack.
 
 - Challenge 13: LOLCAP.
 
-- Challenge 14: notuber. 
+- Challenge 14: notuber.
 
+## Gobuster: Find hidden files and web directories
 
+Gobuster helped us solve several challenges by finding hidden files and directories that we couldn’t see just by browsing the site.
 
-## Challenge 1: ROTten to the Core (Yucheng Zhang). 
+Before we explain how we solved each challenge, we’ll first show Gobuster outputs. These gave us clues like secret admin pages, robots.txt, .git, and cs40 homeworks that led us to the flags.
+
+```
+gobuster dir -u http://3.145.206.165 -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -x php,html,js,json,txt
+===============================================================
+Gobuster v3.6
+by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
+===============================================================
+[+] Url:                     http://3.145.206.165
+[+] Method:                  GET
+[+] Threads:                 10
+[+] Wordlist:                /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt
+[+] Negative Status codes:   404
+[+] User Agent:              gobuster/3.6
+[+] Extensions:              php,html,js,json,txt
+[+] Timeout:                 10s
+===============================================================
+Starting gobuster in directory enumeration mode
+===============================================================
+/index.php            (Status: 301) [Size: 0] [--> http://3.145.206.165/]
+/login.php            (Status: 302) [Size: 0] [--> admin.php?error]
+/main.php             (Status: 302) [Size: 0] [--> admin.php]
+/data.txt             (Status: 200) [Size: 200701]
+/wp-content           (Status: 301) [Size: 169] [--> http://3.145.206.165/wp-content/]
+/admin.php            (Status: 200) [Size: 472]
+/board.php            (Status: 200) [Size: 1597]
+/wp-login.php         (Status: 200) [Size: 5016]
+/includes             (Status: 301) [Size: 169] [--> http://3.145.206.165/includes/]
+/license.txt          (Status: 200) [Size: 19915]
+/wp-includes          (Status: 301) [Size: 169] [--> http://3.145.206.165/wp-includes/]
+/logout.php           (Status: 302) [Size: 0] [--> admin.php]
+/readme.html          (Status: 200) [Size: 7466]
+/robots.txt           (Status: 200) [Size: 8135]
+/wp-trackback.php     (Status: 200) [Size: 135]
+/scoreboard           (Status: 301) [Size: 169] [--> http://3.145.206.165/scoreboard/]
+/wp-admin             (Status: 301) [Size: 169] [--> http://3.145.206.165/wp-admin/]
+/xmlrpc.php           (Status: 405) [Size: 42]
+/logger.php           (Status: 200) [Size: 99]
+/wp-signup.php        (Status: 302) [Size: 0] [--> /wp-login.php?action=register]
+Progress: 1323360 / 1323366 (100.00%)
+===============================================================
+Finished
+===============================================================
+```
+
+## Challenge 1: ROTten to the Core (Yucheng Zhang).
 
 ### Problem
 
@@ -72,38 +119,22 @@ with open("decoded_final.bin", "wb") as f:
     f.write(data)
 ```
 
-## Challenge 3: .git the FLAG. 
+## Challenge 3: .git the FLAG.
 
-
-
-## Challenge 5: Don't ask me if something looks wrong. Look again, pay careful attention. 
-
-
+## Challenge 5: Don't ask me if something looks wrong. Look again, pay careful attention.
 
 ## Challenge 6: Don't ask me if something looks wrong. Look again, pay really careful attention.
 
-
-
 ## Challenge 7: That readme is peculiar...
-
-
-
-
 
 ## Challenge 8: A whole bunch of CS40 homeworks found
 
 ![cs40 flag](cs40_flag.png)
 
-
-
-
-
 ## Challenge 10: About my friend bobo
 
 # ![bobo flag](bobo_flag.png)
 
-
-
-## Challenge 11: XSS gone sinister. 
+## Challenge 11: XSS gone sinister.
 
 ## Challenge 12: Where are the robots? (Yucheng Zhang)
