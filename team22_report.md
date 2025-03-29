@@ -198,6 +198,9 @@ Hints: Base64, bad grammar
 
 ### Problem
 
+Where is the readme?
+Where is the repo? 
+Can we git clone?
 
 ### Solution
 
@@ -207,8 +210,22 @@ Hints: Base64, bad grammar
 
 #### Exact Location
 
+http://3.145.206.165/readme.html
+
+We found this flag on the readme page.
 
 #### Method
+
+How many file extensions for readme could there be?
+
+We tried this the brute force way trying different file extensions until we got a bite
+
+readme.php
+readme.txt
+readme.png
+readme.html
+
+We eventually found it again on Gobuster...
 
 ## Challenge 8: A whole bunch of CS40 homeworks found
 
@@ -293,6 +310,8 @@ These are not the droids you're looking for...
 ## Challenge 13: LOLCAP
 
 ### Problem
+
+![Wireshark lol.pcap](wireshark_lol.PNG)
 
 Download the LOLCAP.pcap file and find flag
 Packets in pcap file are all malformed
