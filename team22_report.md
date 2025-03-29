@@ -129,13 +129,13 @@ Find the flag, HINT: .git
 
 #### Screenshot of flag
 
-![Challenge 3 Flag](challenge_3_flag.png)
+![Challenge 3 Flag](challenge_3_flag.PNG)
 
 #### Exact Location
 
 FLAG file from http://3.145.206.165/.git/ endpoint
 
-![.git Directory](git_dir.png)
+![.git Directory](git_dir.PNG)
 
 #### Method
 
