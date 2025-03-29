@@ -85,9 +85,18 @@ uggcf://cnhytenunz.pbz/tbbtyr.ugzy
 
 ### Solution
 
-The code is ROT13-encoded message. I used rot13-decoder (https://cryptii.com/pipes/rot13-decoder) to decode the text, and key `key{4a247351c63a867bf26d505d095c37284efc3802087bacac363a418184cc7506}` is revealed
+#### Screenshot of flag
 
 <img src="rotten.png" alt="Rotten Image" width="70%">
+
+#### Exact Location
+
+ROTten to the Core blog post
+
+#### Method
+
+The code is ROT13-encoded message. I used rot13-decoder (https://cryptii.com/pipes/rot13-decoder) to decode the text, and key `key{4a247351c63a867bf26d505d095c37284efc3802087bacac363a418184cc7506}` is revealed
+
 
 ## Challenge 2: I hope I didn't make this too easy: another flag is on the blog.
 
@@ -96,6 +105,16 @@ The code is ROT13-encoded message. I used rot13-decoder (https://cryptii.com/pip
 There must be another flag on the blog... 
 
 ### Solution
+
+#### Screenshot of flag
+
+`key{5925189030bc2af596c7ccc8d925c292ca0e25165965caba71e9d5fafaebd744}`
+
+#### Exact Location
+
+A Flag Is Here… Blog Post 
+
+#### Method
 
 This is a multi-layer Base64 encoded text. I used the below python script to decode 20 layers to finally got the key `key{5925189030bc2af596c7ccc8d925c292ca0e25165965caba71e9d5fafaebd744}`.
 
