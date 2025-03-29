@@ -121,6 +121,28 @@ with open("decoded_final.bin", "wb") as f:
 
 ## Challenge 3: .git the FLAG.
 
+### Problem
+
+Find the flag, HINT: .git
+
+### Solution
+
+#### Screenshot of flag
+
+
+
+#### Exact Location
+
+FLAG file from http://3.145.206.165/.git/ endpoint
+
+
+
+#### Method
+
+Once endpoint was uncovered using brute force adding /.git/ to the url we found a number of files and directories.
+One of which was a FLAG file once downloaded and viewed in Notepad exposed the flag. 
+
+
 ## Challenge 5: Don't ask me if something looks wrong. Look again, pay careful attention.
 
 ## Challenge 6: Don't ask me if something looks wrong. Look again, pay really careful attention.
