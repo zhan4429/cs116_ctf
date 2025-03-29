@@ -231,19 +231,28 @@ We eventually found it again on Gobuster...
 
 ### Problem
 
+Find the homeworks, find the flag
+
 
 ### Solution
 
 #### Screenshot of flag
 
-
+![cs40 flag](cs40_flag.png)
 
 #### Exact Location
+http://3.145.206.165/wp-content/uploads/2024/03/
 
+hello.docx file that was actually a PDF!
 
 #### Method
 
-![cs40 flag](cs40_flag.png)
+Using GoBuster we found the /wm-content endpoint that led us to this 
+http://3.145.206.165/wp-content/uploads/2024/03/
+
+Where we found an intruiging hello.docx that we could not open using Word. 
+We checked the file type and it was actually a pdf after converting and viewing the file we found the flag!
+
 
 
 ## Challenge 10: About my friend bobo
