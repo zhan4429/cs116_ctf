@@ -15,7 +15,9 @@
 
 - Challenge 14: notuber.
 
-## Gobuster: Find hidden files and web directories
+## Two useful tools used in vulnerability scan
+
+### Gobuster: Find hidden files and web directories
 
 Gobuster helped us solve several challenges by finding hidden files and directories that we couldn’t see just by browsing the site.
 
@@ -62,6 +64,201 @@ Progress: 1323360 / 1323366 (100.00%)
 ===============================================================
 Finished
 ===============================================================
+```
+
+### WPScan: WordPress Security Scanner
+
+```
+$ wpscan --url http://3.145.206.16
+Interesting Finding(s):
+
+[+] Headers
+ | Interesting Entry: Server: nginx/1.22.1
+ | Found By:
+ | Confidence: 100%
+
+[+] robots.txt found: http://3.145.206.165/robots.txt
+ | Found By:
+ | Confidence: 100%
+
+[+] XML-RPC seems to be enabled: http://3.145.206.165/xmlrpc.php
+ | Found By: Direct Access (Aggressive Detection)
+ | Confidence: 100%
+ | References:
+ |  - http://codex.wordpress.org/XML-RPC_Pingback_API
+ |  - https://www.rapid7.com/db/modules/auxiliary/scanner/http/wordpress_ghost_scanner/
+ |  - https://www.rapid7.com/db/modules/auxiliary/dos/http/wordpress_xmlrpc_dos/
+ |  - https://www.rapid7.com/db/modules/auxiliary/scanner/http/wordpress_xmlrpc_login/
+ |  - https://www.rapid7.com/db/modules/auxiliary/scanner/http/wordpress_pingback_access/
+
+[+] WordPress readme found: http://3.145.206.165/readme.html
+ | Found By: Direct Access (Aggressive Detection)
+ | Confidence: 100%
+
+[+] Upload directory has listing enabled: http://3.145.206.165/wp-content/uploads/
+ | Found By: Direct Access (Aggressive Detection)
+ | Confidence: 100%
+
+[+] The external WP-Cron seems to be enabled: http://3.145.206.165/wp-cron.php
+ | Found By: Direct Access (Aggressive Detection)
+ | Confidence: 60%
+ | References:
+ |  - https://www.iplocation.net/defend-wordpress-from-ddos
+ |  - https://github.com/wpscanteam/wpscan/issues/1299
+
+[+] WordPress version 6.2 identified (Insecure, released on 2023-03-29).
+ | Found By:
+ |  - http://3.145.206.165/, Match: 'wp-includes\/js\/wp-emoji-release.min.js?ver=6.2'
+ | Confirmed By:
+ |  - http://3.145.206.165/, Match: 'WordPress 6.2'
+ |
+ | [!] 18 vulnerabilities identified:
+ |
+ | [!] Title: WP <= 6.2 - Unauthenticated Blind SSRF via DNS Rebinding
+ |     References:
+ |      - https://wpscan.com/vulnerability/c8814e6e-78b3-4f63-a1d3-6906a84c1f11
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-3590
+ |      - https://blog.sonarsource.com/wordpress-core-unauthenticated-blind-ssrf/
+ |
+ | [!] Title: WP < 6.2.1 - Directory Traversal via Translation Files
+ |     Fixed in: 6.2.1
+ |     References:
+ |      - https://wpscan.com/vulnerability/2999613a-b8c8-4ec0-9164-5dfe63adf6e6
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-2745
+ |      - https://wordpress.org/news/2023/05/wordpress-6-2-1-maintenance-security-release/
+ |
+ | [!] Title: WP < 6.2.1 - Thumbnail Image Update via CSRF
+ |     Fixed in: 6.2.1
+ |     References:
+ |      - https://wpscan.com/vulnerability/a03d744a-9839-4167-a356-3e7da0f1d532
+ |      - https://wordpress.org/news/2023/05/wordpress-6-2-1-maintenance-security-release/
+ |
+ | [!] Title: WP < 6.2.1 - Contributor+ Stored XSS via Open Embed Auto Discovery
+ |     Fixed in: 6.2.1
+ |     References:
+ |      - https://wpscan.com/vulnerability/3b574451-2852-4789-bc19-d5cc39948db5
+ |      - https://wordpress.org/news/2023/05/wordpress-6-2-1-maintenance-security-release/
+ |
+ | [!] Title: WP < 6.2.2 - Shortcode Execution in User Generated Data
+ |     Fixed in: 6.2.2
+ |     References:
+ |      - https://wpscan.com/vulnerability/ef289d46-ea83-4fa5-b003-0352c690fd89
+ |      - https://wordpress.org/news/2023/05/wordpress-6-2-1-maintenance-security-release/
+ |      - https://wordpress.org/news/2023/05/wordpress-6-2-2-security-release/
+ |
+ | [!] Title: WP < 6.2.1 - Contributor+ Content Injection
+ |     Fixed in: 6.2.1
+ |     References:
+ |      - https://wpscan.com/vulnerability/1527ebdb-18bc-4f9d-9c20-8d729a628670
+ |      - https://wordpress.org/news/2023/05/wordpress-6-2-1-maintenance-security-release/
+ |
+ | [!] Title: WP 5.6-6.3.1 - Contributor+ Stored XSS via Navigation Block
+ |     Fixed in: 6.2.3
+ |     References:
+ |      - https://wpscan.com/vulnerability/cd130bb3-8d04-4375-a89a-883af131ed3a
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-38000
+ |      - https://wordpress.org/news/2023/10/wordpress-6-3-2-maintenance-and-security-release/
+ |
+ | [!] Title: WP 5.6-6.3.1 - Reflected XSS via Application Password Requests
+ |     Fixed in: 6.2.3
+ |     References:
+ |      - https://wpscan.com/vulnerability/da1419cc-d821-42d6-b648-bdb3c70d91f2
+ |      - https://wordpress.org/news/2023/10/wordpress-6-3-2-maintenance-and-security-release/
+ |
+ | [!] Title: WP < 6.3.2 - Denial of Service via Cache Poisoning
+ |     Fixed in: 6.2.3
+ |     References:
+ |      - https://wpscan.com/vulnerability/6d80e09d-34d5-4fda-81cb-e703d0e56e4f
+ |      - https://wordpress.org/news/2023/10/wordpress-6-3-2-maintenance-and-security-release/
+ |
+ | [!] Title: WP < 6.3.2 - Subscriber+ Arbitrary Shortcode Execution
+ |     Fixed in: 6.2.3
+ |     References:
+ |      - https://wpscan.com/vulnerability/3615aea0-90aa-4f9a-9792-078a90af7f59
+ |      - https://wordpress.org/news/2023/10/wordpress-6-3-2-maintenance-and-security-release/
+ |
+ | [!] Title: WP < 6.3.2 - Contributor+ Comment Disclosure
+ |     Fixed in: 6.2.3
+ |     References:
+ |      - https://wpscan.com/vulnerability/d35b2a3d-9b41-4b4f-8e87-1b8ccb370b9f
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-39999
+ |      - https://wordpress.org/news/2023/10/wordpress-6-3-2-maintenance-and-security-release/
+ |
+ | [!] Title: WP < 6.3.2 - Unauthenticated Post Author Email Disclosure
+ |     Fixed in: 6.2.3
+ |     References:
+ |      - https://wpscan.com/vulnerability/19380917-4c27-4095-abf1-eba6f913b441
+ |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-5561
+ |      - https://wpscan.com/blog/email-leak-oracle-vulnerability-addressed-in-wordpress-6-3-2/
+ |      - https://wordpress.org/news/2023/10/wordpress-6-3-2-maintenance-and-security-release/
+ |
+ | [!] Title: WordPress < 6.4.3 - Deserialization of Untrusted Data
+ |     Fixed in: 6.2.4
+ |     References:
+ |      - https://wpscan.com/vulnerability/5e9804e5-bbd4-4836-a5f0-b4388cc39225
+ |      - https://wordpress.org/news/2024/01/wordpress-6-4-3-maintenance-and-security-release/
+ |
+ | [!] Title: WordPress < 6.4.3 - Admin+ PHP File Upload
+ |     Fixed in: 6.2.4
+ |     References:
+ |      - https://wpscan.com/vulnerability/a8e12fbe-c70b-4078-9015-cf57a05bdd4a
+ |      - https://wordpress.org/news/2024/01/wordpress-6-4-3-maintenance-and-security-release/
+ |
+ | [!] Title: WP < 6.5.2 - Unauthenticated Stored XSS
+ |     Fixed in: 6.2.5
+ |     References:
+ |      - https://wpscan.com/vulnerability/1a5c5df1-57ee-4190-a336-b0266962078f
+ |      - https://wordpress.org/news/2024/04/wordpress-6-5-2-maintenance-and-security-release/
+ |
+ | [!] Title: WordPress < 6.5.5 - Contributor+ Stored XSS in HTML API
+ |     Fixed in: 6.2.6
+ |     References:
+ |      - https://wpscan.com/vulnerability/2c63f136-4c1f-4093-9a8c-5e51f19eae28
+ |      - https://wordpress.org/news/2024/06/wordpress-6-5-5/
+ |
+ | [!] Title: WordPress < 6.5.5 - Contributor+ Stored XSS in Template-Part Block
+ |     Fixed in: 6.2.6
+ |     References:
+ |      - https://wpscan.com/vulnerability/7c448f6d-4531-4757-bff0-be9e3220bbbb
+ |      - https://wordpress.org/news/2024/06/wordpress-6-5-5/
+ |
+ | [!] Title: WordPress < 6.5.5 - Contributor+ Path Traversal in Template-Part Block
+ |     Fixed in: 6.2.6
+ |     References:
+ |      - https://wpscan.com/vulnerability/36232787-754a-4234-83d6-6ded5e80251c
+ |      - https://wordpress.org/news/2024/06/wordpress-6-5-5/
+
+[+] WordPress theme in use: twentysixteen
+ | Location: http://3.145.206.165/wp-content/themes/twentysixteen/
+ | Last Updated: 2024-11-13T00:00:00.000Z
+ | Readme: http://3.145.206.165/wp-content/themes/twentysixteen/readme.txt
+ | [!] The version is out of date, the latest version is 3.4
+ | Style URL: http://3.145.206.165/wp-content/themes/twentysixteen/style.css?ver=20221101
+ | Style Name: Twenty Sixteen
+ | Style URI: https://wordpress.org/themes/twentysixteen/
+ | Description: Twenty Sixteen is a modernized take on an ever-popular WordPress layout — the horizontal masthead wi...
+ | Author: the WordPress team
+ | Author URI: https://wordpress.org/
+ |
+ | Found By:
+ |
+ | Version: 2.8 (80% confidence)
+ | Found By:
+ |  - http://3.145.206.165/wp-content/themes/twentysixteen/style.css?ver=20221101, Match: 'Version: 2.8'
+
+[+] Enumerating All Plugins (via Passive Methods)
+
+[i] No plugins Found.
+
+[+] Enumerating Config Backups (via Passive and Aggressive Methods)
+ Checking Config Backups - Time: 00:00:02 <============================================================================================================> (137 / 137) 100.00% Time: 00:00:02
+
+[i] No Config Backups Found.
+
+[+] WPScan DB API OK
+ | Plan: free
+ | Requests Done (during the scan): 2
+ | Requests Remaining: 23
 ```
 
 ## Challenge 1: ROTten to the Core (Yucheng Zhang).
@@ -234,25 +431,32 @@ We eventually found it again on Gobuster...
 
 Find the homeworks, find the flag
 
-### Solution
+### Method
 
-#### Screenshot of flag
+During our scan with WPSscan, several subpages revealed.
 
-![cs40 flag](cs40_flag.png)
+```
+wpscan --url http://3.145.206.165
+```
 
-#### Exact Location
+One interesting directory we found was:
 
-http://3.145.206.165/wp-content/uploads/2024/03/
+```
+http://3.145.206.165/wp-content/uploads/
+```
 
-hello.docx file that was actually a PDF!
+Inside, there are three folders named: 2022, 2024, and 2025. Under `2024/03`, we discovered CS40 homeworks:
 
-#### Method
+![cs40 homework](cs40_homework.png)
 
-Using GoBuster we found the /wm-content endpoint that led us to this
-http://3.145.206.165/wp-content/uploads/2024/03/
+While searching through these files for a flag, we found one named hello.docx. At first, we tried to open it in Microsoft Word, but it didn’t render properly. So we checked the file type using `file`:
 
-Where we found an intruiging hello.docx that we could not open using Word.
-We checked the file type and it was actually a pdf after converting and viewing the file we found the flag!
+```
+$ file hello.docx
+hello.docx: PDF document, version 1.7, 1 pages
+```
+
+It identified the file as a PDF rather than a Word document. After renaming it to hello.pdf, we opened it and successfully found the flag inside the PDF.
 
 ## Challenge 10: About my friend bobo
 
