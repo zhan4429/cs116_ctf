@@ -293,7 +293,7 @@ Trying admin / contraviento Time: 04:24:04 <==                                  
 ```
 
 Using username as `bobo` and Password as `Football`, I successfully logged in `http://3.145.206.165/wp-login.php`.
-# ![login](login.png)
+<img src="login.png" alt="Login page" width="60%">
 
 And I found the flag in DashBoard. 
 
