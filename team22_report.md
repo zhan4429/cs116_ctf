@@ -83,26 +83,19 @@ xrl{4n247351p63n867os26q505q095p37284rsp3802087onpnp363n418184pp7506}
 uggcf://cnhytenunz.pbz/tbbtyr.ugzy
 ```
 
-### Solution
+#### Method
+
+This problem is very straightforward. The string `xrl{4n247351p63n867os26q505q095p37284rsp3802087onpnp363n418184pp7506}`match the pattern of `key{xxxxxx}`. With rot13-decoder (https://cryptii.com/pipes/rot13-decoder), the text is decoded and and the key `key{4a247351c63a867bf26d505d095c37284efc3802087bacac363a418184cc7506}` is revealed
 
 #### Screenshot of flag
 
 <img src="rotten.png" alt="Rotten Image" width="70%">
 
-#### Exact Location
-
-ROTten to the Core blog post
-
-#### Method
-
-The code is ROT13-encoded message. I used rot13-decoder (https://cryptii.com/pipes/rot13-decoder) to decode the text, and key `key{4a247351c63a867bf26d505d095c37284efc3802087bacac363a418184cc7506}` is revealed
-
-
 ## Challenge 2: I hope I didn't make this too easy: another flag is on the blog.
 
 ### Problem
 
-There must be another flag on the blog... 
+There must be another flag on the blog...
 
 ### Solution
 
@@ -112,7 +105,7 @@ There must be another flag on the blog...
 
 #### Exact Location
 
-A Flag Is Here… Blog Post 
+A Flag Is Here… Blog Post
 
 #### Method
 
@@ -161,57 +154,44 @@ FLAG file from http://3.145.206.165/.git/ endpoint
 #### Method
 
 Once endpoint was uncovered using brute force adding /.git/ to the url we found a number of files and directories.
-One of which was a FLAG file once downloaded and viewed in Notepad exposed the flag. 
-
+One of which was a FLAG file once downloaded and viewed in Notepad exposed the flag.
 
 ## Challenge 4: All your base64 are belong to us
 
 ### Problem
 
-Find flag. 
+Find flag.
 Hints: Base64, bad grammar
 
 ### Solution
 
 #### Screenshot of flag
 
-
 #### Exact Location
 
-
 #### Method
-
 
 ## Challenge 5: Don't ask me if something looks wrong. Look again, pay careful attention.
 
 ### Problem
 
-
 ### Solution
 
 #### Screenshot of flag
 
-
-
 #### Exact Location
 
-
 #### Method
-
 
 ## Challenge 6: Don't ask me if something looks wrong. Look again, pay really careful attention.
 
 ### Problem
 
-
 ### Solution
 
 #### Screenshot of flag
 
-
-
 #### Exact Location
-
 
 #### Method
 
@@ -220,7 +200,7 @@ Hints: Base64, bad grammar
 ### Problem
 
 Where is the readme?
-Where is the repo? 
+Where is the repo?
 Can we git clone?
 
 ### Solution
@@ -254,7 +234,6 @@ We eventually found it again on Gobuster...
 
 Find the homeworks, find the flag
 
-
 ### Solution
 
 #### Screenshot of flag
@@ -262,19 +241,18 @@ Find the homeworks, find the flag
 ![cs40 flag](cs40_flag.png)
 
 #### Exact Location
+
 http://3.145.206.165/wp-content/uploads/2024/03/
 
 hello.docx file that was actually a PDF!
 
 #### Method
 
-Using GoBuster we found the /wm-content endpoint that led us to this 
+Using GoBuster we found the /wm-content endpoint that led us to this
 http://3.145.206.165/wp-content/uploads/2024/03/
 
-Where we found an intruiging hello.docx that we could not open using Word. 
+Where we found an intruiging hello.docx that we could not open using Word.
 We checked the file type and it was actually a pdf after converting and viewing the file we found the flag!
-
-
 
 ## Challenge 10: About my friend bobo
 
@@ -284,6 +262,7 @@ Bo Bo is the only other user besides admin (Ming) that has posted. Also the only
 Location of the flag will have something to do with Bo Bo
 
 ### Method
+
 ```
 $ wpscan --url http://3.145.206.165 --passwords rockyou.txt --usernames admin,bobo
 
@@ -297,7 +276,7 @@ Trying admin / contraviento Time: 04:24:04 <==                                  
 Using username as `bobo` and Password as `Football`, I successfully logged in `http://3.145.206.165/wp-login.php`.
 <img src="login.png" alt="Login page" width="60%">
 
-And I found the flag in DashBoard. 
+And I found the flag in DashBoard.
 
 #### Screenshot of flag
 
@@ -316,35 +295,36 @@ wpscan --url http://3.145.206.165 --passwords rockyou.txt --usernames admin,bobo
 Once the password was cracked we used the credentials: bobo, Football
 on the wp-login page http://3.145.206.165/wp-login.php to login as bobo.
 
-
 ## Challenge 11: XSS gone sinister. (Joel Han)
 
 ### Problem
 
-A little bit of sneaky XSS will get us there. 
+A little bit of sneaky XSS will get us there.
 
-### Solution 
+### Solution
 
 #### Screenshot of flag
+
 # ![data_txt](https://github.com/user-attachments/assets/29d0490b-4ab0-4a58-b95f-67f0f5a3109c)
 
-
 #### Exact Location
+
 Key found at this URL: http://3.145.206.165/data.txt
 
 #### Method
-Inspected the board.php page and found there was a code snippet in the first comment. Compared to all the other comments, it 
-looked strangely out of place... so doing what a curious person should do: we dug deeper to figure out what exactly it did. 
-After some digging, we concluded it was used to log user keystrokes! 
 
-After understanding that, we tested going to http://3.145.206.165/logger.php, since that's where it looked like everything was 
-being directed to.  To our surprise, we were met with a blank page didn't find anything noteable until inspecting the page...  
-information on JohnHoder's Javascript Keylogger GitHub. 
+Inspected the board.php page and found there was a code snippet in the first comment. Compared to all the other comments, it
+looked strangely out of place... so doing what a curious person should do: we dug deeper to figure out what exactly it did.
+After some digging, we concluded it was used to log user keystrokes!
+
+After understanding that, we tested going to http://3.145.206.165/logger.php, since that's where it looked like everything was
+being directed to. To our surprise, we were met with a blank page didn't find anything noteable until inspecting the page...  
+information on JohnHoder's Javascript Keylogger GitHub.
 
 After finding the GitHub, we saw some information on how the logger worked and where it was sesnding information to be stored.  
-But to where? Process of elimination...  If it's not the .js or data.php file, it's probably the data.txt file right?
+But to where? Process of elimination... If it's not the .js or data.php file, it's probably the data.txt file right?
 
-Lo and behold - after plugging in http://3.145.206.165/data.txt, the key was listed there (along with a lot of other 
+Lo and behold - after plugging in http://3.145.206.165/data.txt, the key was listed there (along with a lot of other
 information input which we assume is from users submitting information to the board.php page.)
 
 A fun goose chase to go from one point to another!
@@ -361,14 +341,13 @@ http://3.145.206.165/robots.txt
 ![robots](robots.png)
 http://3.145.206.165/JBlRNSJCIOBMCbExCdWFGUqtmjtNEZta.html
 
-
 Found the key `key{e27e4e386ce420468990d385fcb6e3c9762c234df437dd2f6789c06ba18ca7e1}`
+
 #### Screenshot of flag
+
 ![robots_key](robots_key.png)
 
-
 #### Exact Location
-
 
 #### Method
 
@@ -385,10 +364,7 @@ Packets in pcap file are all malformed
 
 #### Screenshot of flag
 
-
-
 #### Exact Location
-
 
 #### Method
 
@@ -396,19 +372,13 @@ Packets in pcap file are all malformed
 
 ### Problem
 
-
 ### Solution
 
 #### Screenshot of flag
 
-
-
 #### Exact Location
 
-
 #### Method
-
-
 
 ## Executive Summary
 
