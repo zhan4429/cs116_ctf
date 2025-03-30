@@ -301,22 +301,26 @@ Once the password was cracked we used the credentials: bobo, Football
 on the wp-login page http://3.145.206.165/wp-login.php to login as bobo.
 
 
-## Challenge 11: XSS gone sinister.
+## Challenge 11: XSS gone sinister. (Joel Han)
 
 ### Problem
 
 A little bit of sneaky XSS will get us there. 
 
-### Solution
+### Solution 
 
 #### Screenshot of flag
-
-
+# ![data_txt](https://github.com/user-attachments/assets/4582bcc0-9dc2-40e7-8d63-8fd5415c16f0)
 
 #### Exact Location
-
+Key found at this URL: http://3.145.206.165/data.txt
 
 #### Method
+Inspected the board.php page and found there was a code snippet in the first comment. After some investigation on what the 
+snippet did, concluded it was used to log user keystrokes. After understanding that, I tested going to the 
+http://3.145.206.165/logger.php, and didn't find anything noteable until inspecting the page. From there, the inspection gave 
+information on JohnHoder's Javascript GitHub. After combing through that, I tried plugging in http://3.145.206.165/data.txt 
+since the GitHub mentioned that keystrokes would be logged there, and the key was listed there (along with a lot of other information input)
 
 ## Challenge 12: Where are the robots? (Yucheng Zhang)
 
