@@ -317,12 +317,21 @@ A little bit of sneaky XSS will get us there.
 Key found at this URL: http://3.145.206.165/data.txt
 
 #### Method
-Inspected the board.php page and found there was a code snippet in the first comment. After some investigation on what the 
-snippet did, we concluded it was used to log user keystrokes. After understanding that, we tested going to the 
-http://3.145.206.165/logger.php, but didn't find anything noteable until inspecting the page. From there, the inspection gave 
-us information on JohnHoder's Javascript Keylogger GitHub. After combing through that, we saw some information on the logs 
-being sent to a data.txt file - and finally after plugging in http://3.145.206.165/data.txt, the key was listed there (along 
-with a lot of other information input which we assume is from users submitting information to the board.php page.)
+Inspected the board.php page and found there was a code snippet in the first comment. Compared to all the other comments, it 
+looked strangely out of place... so doing what a curious person should do: we dug deeper to figure out what exactly it did. 
+After some digging, we concluded it was used to log user keystrokes! 
+
+After understanding that, we tested going to http://3.145.206.165/logger.php, since that's where it looked like everything was 
+being directed to.  To our surprise, we were met with a blank page didn't find anything noteable until inspecting the page...  
+information on JohnHoder's Javascript Keylogger GitHub. 
+
+After finding the GitHub, we saw some information on how the logger worked and where it was sesnding information to be stored.  
+But to where? Process of elimination...  If it's not the .js or data.php file, it's probably the data.txt file right?
+
+Lo and behold - after plugging in http://3.145.206.165/data.txt, the key was listed there (along with a lot of other 
+information input which we assume is from users submitting information to the board.php page.)
+
+A fun goose chase to go from one point to another!
 
 ## Challenge 12: Where are the robots? (Yucheng Zhang)
 
