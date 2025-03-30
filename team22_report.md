@@ -355,8 +355,14 @@ These are not the droids you're looking for...
 
 ### Solution
 
-#### Screenshot of flag
+http://3.145.206.165/robots.txt
+![robots](robots.png)
+http://3.145.206.165/JBlRNSJCIOBMCbExCdWFGUqtmjtNEZta.html
 
+
+Found the key `key{e27e4e386ce420468990d385fcb6e3c9762c234df437dd2f6789c06ba18ca7e1}`
+#### Screenshot of flag
+![robots_key](robots_key.png)
 
 
 #### Exact Location
