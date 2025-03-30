@@ -138,6 +138,8 @@ with open("decoded_final.bin", "wb") as f:
     f.write(data)
 ```
 
+- Joel: This one was funny seeing how many times we needed to run through Base64!
+
 ## Challenge 3: .git the FLAG.
 
 ### Problem
