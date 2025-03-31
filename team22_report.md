@@ -15,7 +15,7 @@
 
 - Challenge 14: notuber.
 
-## Two useful tools used in vulnerability scan
+## Two VERY useful tools used in vulnerability scan
 
 ### Gobuster: Find hidden files and web directories
 
@@ -591,10 +591,33 @@ Packets in pcap file are all malformed
 #### Method
 
 ## Executive Summary
+- Out of 15 flags (including the free flag), we captured 11 of the available flags.
+- Unfortunately, we were unable to acquire any of the 400 point flags. We feel like we were close on some of them (like LOLCAP and All Your Base64 belong to us), but weren't able
+  to find the flags.
+- We all collaborated together to find the easier flags, and split up to take on the more challenging ones. We worked together on deciphering the clues and to tackle some of
+  struggles we encountered.
+- GoBuster and WordPress Scan were extremely valuable tools in helping solve some of the challenges.ards
 
 ## Lessons Learned
+- While the challenges seemed difficult, most of the challenges we solved were just extensions of what we had learned in class and required some out-of-the-box thinking
+- There are many public tools available that are helpful for scraping and detecting vulnerabilities (Cyberchef, Gobuster, etc.)
+- It's very difficult to be completely invulnerable...  This lab is setup to have varying levels of vulnerabilities, but as we learned from the examples discussed about in class,
+  schools, corporations, and even encryption companies have had vulnerabilities.
+- ALWAYS VALIDATE USER PROVIDED INPUT
+- (Joel) Inspecting the elements of a webpage has TONS of information - super cool to actually dig in to and see what lies underneath the hood! 
 
 ## Conclusions
+- (Joel) While we didn't get any of the 400 point flags, they all were "fair" - nothing out of the ordinary but it either took some extra steps or a modified approach to get
+  it right. In my opinion, it feels like some of it just comes from practice and seeing more and more examples - being able to identify what the problem is and come up with
+  different approaches that could break it.
+- 
+
+## What Would You Do Differently For Next Time? 
+- (Joel) I definitely would search for more available tools! Yucheng introduced me to Gobuster to find the available files, so I'm curious to know what other tools there
+  are. I also so I spent of lot of unnecessary time by overcomplicating things, when in reality they were a lot simpler (like decrypting multiple times in a row). For the
+  future, I'd probably go with my gut instinct to try simple things first before making it more complicated. I also wish that I'd be able to do this in person! More of a personal
+  thing: While online is great for remote students, I'd love to be able to work in-person with folks tackling the same problems. I think it changes the dynamic and makes it more
+  fun! I'd be interested in doing more of these to practice 
 
 ```
 
