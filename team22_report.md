@@ -391,7 +391,7 @@ Can we git clone?
 
 #### Screenshot of flag
 
-![Readme Spotted](readme_flag.PNG)
+<img src="readme_flag.PNG" alt="Readme Spotted" width="60%">
 
 #### Exact Location
 
@@ -434,7 +434,7 @@ http://3.145.206.165/wp-content/uploads/
 
 Inside, there are three folders named: 2022, 2024, and 2025. Under `2024/03`, we discovered CS40 homeworks:
 
-![cs40 homework](cs40_homework.png)
+<img src="cs40_homework.png" alt="cs40 homework" width="60%">
 
 While searching through these files for a flag, we found one named hello.docx. At first, we tried to open it in Microsoft Word, but it didn’t render properly. So we checked the file type using `file`:
 
@@ -495,11 +495,11 @@ Trying admin / contraviento Time: 04:24:04 <== > (689415 / 28702202) 2.40% ETA: 
 ```
 
 Using username as `bobo` and Password as `Football`, I successfully logged in `http://3.145.206.165/wp-login.php`.
-<img src="login.png" alt="Login page" width="60%">
+<img src="login.png" alt="Login page" width="40%">
 
 And I found the flag in DashBoard:
 
-# ![bobo flag](bobo_flag.png)
+<h1><img src="bobo_flag.png" alt="bobo flag" width="60%"></h1>
 
 ## Challenge 11: XSS gone sinister. (Joel Han)
 
@@ -561,7 +561,7 @@ Found the key `key{e27e4e386ce420468990d385fcb6e3c9762c234df437dd2f6789c06ba18ca
 
 ### Problem
 
-![Wireshark lol.pcap](wireshark_lol.PNG)
+<img src="wireshark_lol.PNG" alt="Wireshark lol.pcap" width="60%">
 
 Download the LOLCAP.pcap file and find flag
 Packets in pcap file are all malformed
