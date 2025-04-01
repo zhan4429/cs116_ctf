@@ -344,7 +344,7 @@ FLAG file from http://3.145.206.165/.git/ endpoint
 Once endpoint was uncovered using brute force adding /.git/ to the url we found a number of files and directories.
 One of which was a FLAG file once downloaded and viewed in Notepad exposed the flag.
 
-## Challenge 5: Don't ask me if something looks wrong. Look again, pay careful attention. (Jackson)
+## Challenge 5: Don't ask me if something looks wrong. Look again, pay careful attention
 
 ### Problem
 
@@ -368,7 +368,7 @@ http://3.145.206.165/main.php
 - Eventually we decided to attempt SQL injection in both the username and password by entering a' OR '1=1 for both and was able to login. We were then directed to a 404 papge and the flag is not immediately accessible. However, we were able to locate the flag after clicking "inspect" on the webpage.
 - Note to Ming: We found this flag prior to game stoppage last week. After the game came back online, we were no longer able to find this flag. When we tried SQL injection on the same page referenced here, we were instead directed to the flag for challenge 6 (see below).
 
-## Challenge 6: Don't ask me if something looks wrong. Look again, pay really careful attention. (Jackson)
+## Challenge 6: Don't ask me if something looks wrong. Look again, pay really careful attention
 
 ### Problem
 
@@ -390,7 +390,7 @@ http://3.145.206.165/main.php
 
 - Seeing the login information, we recalled homework 7 and decided to try sql injection. we tried different username & a' OR '1=1 as passwords but was not able to login
 - Eventually we decided to attempt SQL injection in both the username and password by entering a' OR '1=1 for both and was able to login. The flag is immediately available after we login.
-  
+
 ## Challenge 7: That readme is peculiar...
 
 ### Problem
@@ -513,7 +513,7 @@ And I found the flag in DashBoard:
 
 <h1><img src="bobo_flag.png" alt="bobo flag" width="60%"></h1>
 
-## Challenge 11: XSS gone sinister. (Joel Han)
+## Challenge 11: XSS gone sinister
 
 ### Problem
 
@@ -561,13 +561,7 @@ http://3.145.206.165/JBlRNSJCIOBMCbExCdWFGUqtmjtNEZta.html
 
 Found the key `key{e27e4e386ce420468990d385fcb6e3c9762c234df437dd2f6789c06ba18ca7e1}`
 
-#### Screenshot of flag
-
 ![robots_key](robots_key.png)
-
-#### Exact Location
-
-#### Method
 
 ## Challenge 13: LOLCAP (Not Found)
 
@@ -604,17 +598,11 @@ I thought we got the key, but the result is disappointing, because the decoded t
 
 <img src="lol_binary.png" width="50%">
 
-## Challenge 13: notuber (Not Found)
+## Challenge 14: notuber (Not Found)
 
-### Problem
+From `robots.txt`, we found the notuber page. We can also see some students already conducted XSS attacks to this page. We tried similar way, unfortunately, we did not get the key.
 
-### Solution
-
-#### Screenshot of flag
-
-#### Exact Location
-
-#### Method
+<img src="uber.png" width="50%">
 
 ## Executive Summary
 
@@ -638,13 +626,14 @@ I thought we got the key, but the result is disappointing, because the decoded t
   - Collaboration is important in solving ctf challenges and working in cybersecurity. Each memeber of our team comes from different background and have different set of skills. Looking at the challenges from different angles help us figure out solution much more efficient.
   - (Chris) Using common file names that are easily guessable can be a vulnerability. But boy does it feel good to find a vulnerability!
   - For quite a few flags, if we locate the hidden pages, the flags are revealed. Hiding pages does not mean they are secure, we have to make sure they are not exposed to attackers.
+
 ## Conclusions
 
 - (Joel) While we didn't get any of the 400 point flags, they all were "fair" - nothing out of the ordinary but it either took some extra steps or a modified approach to get
   it right. In my opinion, it feels like some of it just comes from practice and seeing more and more examples - being able to identify what the problem is and come up with
   different approaches that could break it.
 - (Yucheng) Playing CTF challanges is a very efficient approach to improve our cybersecurity skills. Security vulnerabilites can exist in unexpected places. We have to pay attention to details. Weak password is a serious security risk.
-- (Chris) Definitely had a blast testing out the skills we've learned in class a very interactive way to learn from classmates and hone our skills. Strong passwords are definitely a must who knows what that admin password was. 
+- (Chris) Definitely had a blast testing out the skills we've learned in class a very interactive way to learn from classmates and hone our skills. Strong passwords are definitely a must who knows what that admin password was.
 
 ## What Would You Do Differently For Next Time?
 
@@ -655,4 +644,4 @@ I thought we got the key, but the result is disappointing, because the decoded t
   fun and collaborative.
 - (Yucheng) I learnt that playing ctf and working in cybersecurity require us to have a broad range of skills. We need to understand how website, network, and database work. In our team, we realized none of us had strong knowledge in areas such as javascript, sql and web development. This might be the reason why we were not able to solve the 400-point challenges. We will improve our knowledge and skills in these fields. I also found that even if I learnt wireshark and burpsuite from class, my skills are not enough for me to solve real-world challenges. This requires me to have a deeper understanding and more hands-on practice.
 - (Chris) CTF games are very involved and there are so many tools to help find vulnerabilities. For the most part I think the more experience you have the better you are at finding the vulnerabilities. So I would definitely like to learn more ways to find vulnerabilities or interpret vulnerabilities in JavaScript code.
-- (Jackson) Through the ctf game, which reinforced many of the same concepts and tools we learnt in class, I came to appreciate that identifying/protecting against/exploiting cybersecurity issues require a very particular lense and familiarity with very particular concepts that take a lot of practice. And it's sometimes more efficient to first know and familiarize yourself with the issues and tricks before starting to solve the challenges, as opposed to sitting in front of the computer and just try to spin wheels. I would definitely go through the tricks and tools we learnt from class one more time if I could do this again before starting to work on the problems. 
+- (Jackson) Through the ctf game, which reinforced many of the same concepts and tools we learnt in class, I came to appreciate that identifying/protecting against/exploiting cybersecurity issues require a very particular lense and familiarity with very particular concepts that take a lot of practice. And it's sometimes more efficient to first know and familiarize yourself with the issues and tricks before starting to solve the challenges, as opposed to sitting in front of the computer and just try to spin wheels. I would definitely go through the tricks and tools we learnt from class one more time if I could do this again before starting to work on the problems.
