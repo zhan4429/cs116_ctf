@@ -347,18 +347,23 @@ One of which was a FLAG file once downloaded and viewed in Notepad exposed the f
 ## Challenge 5: Don't ask me if something looks wrong. Look again, pay careful attention. (Jackson Review)
 
 ### Problem
-Questionable login page... is there any way to bypass this without knowing the username? 
+
+Questionable login page... is there any way to bypass this without knowing the username?
 
 ### Solution
+
 SQL Injection
 
 #### Screenshot of flag
+
 <img width="739" alt="image" src="https://github.com/user-attachments/assets/e1ce05e9-8126-4d7a-b93a-c6d0796a69c3" />
 
 #### Exact Location
+
 http://3.145.206.165/main.php
 
 #### Method
+
 - Seeing the login information, we tried different username & login passwords found (batman/BruceWayne from the data.txt, admin/password, etc.)
 - None of those seemed to be right, so attempting Injection we used: a' OR '1=1
 - We used "password" to start, but after some testing it turns out that as long as the injection is used in the username, it will always redirect you to the same page!
@@ -531,7 +536,7 @@ information input which we assume is from users submitting information to the bo
 
 A fun goose chase to go from one point to another!
 
-## Challenge 12: Where are the robots? (Yucheng Zhang)
+## Challenge 12: Where are the robots?
 
 ### Problem
 
@@ -564,11 +569,29 @@ Packets in pcap file are all malformed
 
 ### Solution
 
-#### Screenshot of flag
+#### Wireshark
 
-#### Exact Location
+I followed the UDP stream, and got the text in ASCII format:
 
-#### Method
+```
+lol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtf
+```
+
+From the text, we can see that there are two strings, `lol` and `wtflol`. So I tried to replace `lol` with 0 and `wtflol` with 1 or `lol` with 1 and `wftlol` with 0.
+
+With the binary data, I converted it into ASCII text. It turns out lol`with 0 and`wtflol` with 1 makes senses.
+
+Here is the binary data by replacing `lol` with 0 and `wtflol` with 1:
+
+```
+01100010 01110101 01110010 01101001 01100101 01100100 00100000 01101001
+01101110 00100000 01110100 01101000 01100101 00100000 01101000 01100001
+01111001 01110011 01110100 01100001 01100011 01101011 00101110
+```
+
+I thought we got the key, but the result is disappointing, because the decoded text is `buried in the haystack.`
+
+<img src="lol_binary.png" width="50%">
 
 ## Challenge 13: notuber (Not Found)
 
@@ -583,6 +606,7 @@ Packets in pcap file are all malformed
 #### Method
 
 ## Executive Summary
+
 - Out of 15 flags (including the free flag), we captured 11 of the available flags.
 - Unfortunately, we were unable to acquire any of the 400 point flags. We feel like we were close on some of them (like LOLCAP and All Your Base64 belong to us), but weren't able
   to find the flags.
@@ -591,25 +615,28 @@ Packets in pcap file are all malformed
 - GoBuster and WordPress Scan were extremely valuable tools in helping solve some of the challenges.ards
 
 ## Lessons Learned
+
 - While the challenges seemed difficult, most of the challenges we solved were just extensions of what we had learned in class and required some out-of-the-box thinking
 - There are many public tools available that are helpful for scraping and detecting vulnerabilities (Cyberchef, Gobuster, etc.)
-- It's very difficult to be completely invulnerable...  This lab is setup to have varying levels of vulnerabilities, but as we learned from the examples discussed about in class,
+- It's very difficult to be completely invulnerable... This lab is setup to have varying levels of vulnerabilities, but as we learned from the examples discussed about in class,
   schools, corporations, and even encryption companies have had vulnerabilities.
 - ALWAYS VALIDATE USER PROVIDED INPUT
-- (Joel) Inspecting the elements of a webpage has TONS of information - super cool to actually dig in to and see what lies underneath the hood! 
+- (Joel) Inspecting the elements of a webpage has TONS of information - super cool to actually dig in to and see what lies underneath the hood!
 
 ## Conclusions
+
 - (Joel) While we didn't get any of the 400 point flags, they all were "fair" - nothing out of the ordinary but it either took some extra steps or a modified approach to get
   it right. In my opinion, it feels like some of it just comes from practice and seeing more and more examples - being able to identify what the problem is and come up with
   different approaches that could break it.
-- 
+  -
 
-## What Would You Do Differently For Next Time? 
+## What Would You Do Differently For Next Time?
+
 - (Joel) I definitely would search for more available tools! Yucheng introduced me to Gobuster to find the available files, so I'm curious to know what other tools there
   are. I also so I spent of lot of unnecessary time by overcomplicating things, when in reality they were a lot simpler (like decrypting multiple times in a row). For the
-  future, I'd probably go with my gut instinct to try simple things first before making it more complicated.  More of a personal thing: I also would love to be able to do this in
+  future, I'd probably go with my gut instinct to try simple things first before making it more complicated. More of a personal thing: I also would love to be able to do this in
   person! While online is great for remote students, I'd love to be able to work in-person with folks tackling the same problems. I think it changes the dynamic and makes it more
-  fun and collaborative. 
+  fun and collaborative.
 
 ```
 

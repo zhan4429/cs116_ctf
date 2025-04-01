@@ -1,6 +1,6 @@
 # cs116_ctf
 
-Challenge 1: ROTten to the Core. Yucheng
+Challenge 1: ROTten to the Core.
 
 Challenge 2: I hope I didn't make this too easy: another flag is on the blog.
 
@@ -14,15 +14,14 @@ Challenge 6: Don't ask me if something looks wrong. Look again, pay really caref
 
 Challenge 7: That readme is peculiar...
 
-Challenge 8: A whole bunch of CS40 homeworks found... Yucheng
+Challenge 8: A whole bunch of CS40 homeworks found...
 
 Challenge 9: Buried in the dump, redux: needle in the haystack.
 
-Challenge 10: About my friend bobo... Yucheng
-
+Challenge 10: About my friend bobo...
 Challenge 11: XSS gone sinister.
 
-Challenge 12: Where are the robots? Yucheng
+Challenge 12: Where are the robots?
 
 Challenge 13: LOLCAP.
 
