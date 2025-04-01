@@ -365,8 +365,7 @@ http://3.145.206.165/main.php
 #### Method
 
 - Seeing the login information, we recalled homework 7 and decided to try sql injection. we tried different username & a' OR '1=1 as passwords but was not able to login
-- Eventually we decided to attempt SQL injection in both the username and password by entering a' OR '1=1 for both and was able to login.
-- We used "password" to start, but after some testing it turns out that as long as the injection is used in the username, it will always redirect you to the same page!
+- Eventually we decided to attempt SQL injection in both the username and password by entering a' OR '1=1 for both and was able to login. The flag is immediately available after we login.
 
 ## Challenge 6: Don't ask me if something looks wrong. Look again, pay really careful attention. (Jackson)
 
@@ -608,23 +607,23 @@ I thought we got the key, but the result is disappointing, because the decoded t
 ## Executive Summary
 
 - Out of 15 flags (including the free flag), we captured 11 of the available flags.
-- Unfortunately, we were unable to acquire any of the 400 point flags. We feel like we were close on some of them (like LOLCAP and All Your Base64 belong to us), but weren't able
+- Unfortunately, we were unable to capture any of the 400 point flags. We feel like we were close on some of them (like LOLCAP and All Your Base64 belong to us), but weren't able
   to find the flags.
 - We all collaborated together to find the easier flags, and split up to take on the more challenging ones. We worked together on deciphering the clues and to tackle some of
   struggles we encountered.
-- GoBuster and WordPress Scan were extremely valuable tools in helping solve some of the challenges.ards
+- GoBuster and WordPress Scan were extremely valuable tools in helping to solve some of the challenges.
 
 ## Lessons Learned
 
-- While the challenges seemed difficult, most of the challenges we solved were just extensions of what we had learned in class and required some out-of-the-box thinking
+- While the challenges seemed difficult, most of the challenges we solved were just extensions of what we had learned in class and required some out-of-the-box thinking.
 - There are many public tools available that are helpful for scraping and detecting vulnerabilities (Cyberchef, Gobuster, etc.)
 - It's very difficult to be completely invulnerable... This lab is setup to have varying levels of vulnerabilities, but as we learned from the examples discussed about in class,
   schools, corporations, and even encryption companies have had vulnerabilities.
-- ALWAYS VALIDATE USER PROVIDED INPUT
+- ALWAYS VALIDATE USER PROVIDED INPUT.
 - Exploring the vulnebilities in this website helped us understand how simple design flaws can lead to serious security risks. Attackers can take over the server so easy, such as the message board.
 - (Joel) Inspecting the elements of a webpage has TONS of information - super cool to actually dig in to and see what lies underneath the hood!
 - (Yucheng)
-  - Collaboration is important in solving ctf challenges and working in cybersecurity. Each memeber of our team comes from different background and have different set of skills. Looking at the challenges from different angles help us figure out solution much more efficient.'
+  - Collaboration is important in solving ctf challenges and working in cybersecurity. Each memeber of our team comes from different background and have different set of skills. Looking at the challenges from different angles help us figure out solution much more efficient.
   - For quite a few flags, if we locate the hidden pages, the flags are revealed. Hidding pages does not mean they are secure, we have to make sure they are not exposed to attackers.
 
 ## Conclusions
@@ -632,13 +631,13 @@ I thought we got the key, but the result is disappointing, because the decoded t
 - (Joel) While we didn't get any of the 400 point flags, they all were "fair" - nothing out of the ordinary but it either took some extra steps or a modified approach to get
   it right. In my opinion, it feels like some of it just comes from practice and seeing more and more examples - being able to identify what the problem is and come up with
   different approaches that could break it.
-- (Yucheng) Playing CTF challanges is a very fast approach to improve our cybersecurity skills. Security vulnerabilites can exist in unexpected places. We have to pay attention to details. Weak password is a serious security risk.
+- (Yucheng) Playing CTF challanges is a very efficient approach to improve our cybersecurity skills. Security vulnerabilites can exist in unexpected places. We have to pay attention to details. Weak password is a serious security risk.
 
 ## What Would You Do Differently For Next Time?
 
 - (Joel) I definitely would search for more available tools! Yucheng introduced me to Gobuster to find the available files, so I'm curious to know what other tools there
-  are. I also so I spent of lot of unnecessary time by overcomplicating things, when in reality they were a lot simpler (like decrypting multiple times in a row). For the
+  are. I also spent of lot of unnecessary time by overcomplicating things, when in reality they were a lot simpler (like decrypting multiple times in a row). For the
   future, I'd probably go with my gut instinct to try simple things first before making it more complicated. More of a personal thing: I also would love to be able to do this in
   person! While online is great for remote students, I'd love to be able to work in-person with folks tackling the same problems. I think it changes the dynamic and makes it more
   fun and collaborative.
-- (Yucheng) I learnt that playing ctf and working in cybersecurity requires us a broad range of skills. We need to understand how website, network, and database work. In our team, we realized none of us had strong knowledge in areas such as javascript, sql and web development. This may cause us not to be able to solve 400-point challenges. We will improve our knowledge and skills in these fields. I also found that even if I learnt wireshark and burpsuite from class, my skills are not enough for me to solve real-world challenges. This requires me to have a deep understanding and more hands-on practice.
+- (Yucheng) I learnt that playing ctf and working in cybersecurity require us to have a broad range of skills. We need to understand how website, network, and database work. In our team, we realized none of us had strong knowledge in areas such as javascript, sql and web development. This might be the reason why we were not able to solve the 400-point challenges. We will improve our knowledge and skills in these fields. I also found that even if I learnt wireshark and burpsuite from class, my skills are not enough for me to solve real-world challenges. This requires me to have a deeper understanding and more hands-on practice.
