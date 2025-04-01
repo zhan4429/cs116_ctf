@@ -621,14 +621,18 @@ I thought we got the key, but the result is disappointing, because the decoded t
 - It's very difficult to be completely invulnerable... This lab is setup to have varying levels of vulnerabilities, but as we learned from the examples discussed about in class,
   schools, corporations, and even encryption companies have had vulnerabilities.
 - ALWAYS VALIDATE USER PROVIDED INPUT
+- Exploring the vulnebilities in this website helped us understand how simple design flaws can lead to serious security risks. Attackers can take over the server so easy, such as the message board.
 - (Joel) Inspecting the elements of a webpage has TONS of information - super cool to actually dig in to and see what lies underneath the hood!
+- (Yucheng)
+  - Collaboration is important in solving ctf challenges and working in cybersecurity. Each memeber of our team comes from different background and have different set of skills. Looking at the challenges from different angles help us figure out solution much more efficient.'
+  - For quite a few flags, if we locate the hidden pages, the flags are revealed. Hidding pages does not mean they are secure, we have to make sure they are not exposed to attackers.
 
 ## Conclusions
 
 - (Joel) While we didn't get any of the 400 point flags, they all were "fair" - nothing out of the ordinary but it either took some extra steps or a modified approach to get
   it right. In my opinion, it feels like some of it just comes from practice and seeing more and more examples - being able to identify what the problem is and come up with
   different approaches that could break it.
-  -
+- (Yucheng) Playing CTF challanges is a very fast approach to improve our cybersecurity skills. Security vulnerabilites can exist in unexpected places. We have to pay attention to details. Weak password is a serious security risk.
 
 ## What Would You Do Differently For Next Time?
 
@@ -637,7 +641,4 @@ I thought we got the key, but the result is disappointing, because the decoded t
   future, I'd probably go with my gut instinct to try simple things first before making it more complicated. More of a personal thing: I also would love to be able to do this in
   person! While online is great for remote students, I'd love to be able to work in-person with folks tackling the same problems. I think it changes the dynamic and makes it more
   fun and collaborative.
-
-```
-
-```
+- (Yucheng) I learnt that playing ctf and working in cybersecurity requires us a broad range of skills. We need to understand how website, network, and database work. In our team, we realized none of us had strong knowledge in areas such as javascript, sql and web development. This may cause us not to be able to solve 400-point challenges. We will improve our knowledge and skills in these fields. I also found that even if I learnt wireshark and burpsuite from class, my skills are not enough for me to solve real-world challenges. This requires me to have a deep understanding and more hands-on practice.
