@@ -344,21 +344,6 @@ FLAG file from http://3.145.206.165/.git/ endpoint
 Once endpoint was uncovered using brute force adding /.git/ to the url we found a number of files and directories.
 One of which was a FLAG file once downloaded and viewed in Notepad exposed the flag.
 
-## Challenge 4: All your base64 are belong to us
-
-### Problem
-
-Find flag.
-Hints: Base64, bad grammar
-
-### Solution
-
-#### Screenshot of flag
-
-#### Exact Location
-
-#### Method
-
 ## Challenge 5: Don't ask me if something looks wrong. Look again, pay careful attention.
 
 ### Problem
@@ -561,7 +546,7 @@ Found the key `key{e27e4e386ce420468990d385fcb6e3c9762c234df437dd2f6789c06ba18ca
 
 #### Method
 
-## Challenge 13: LOLCAP
+## Challenge 13: LOLCAP (Not Found)
 
 ### Problem
 
@@ -578,7 +563,7 @@ Packets in pcap file are all malformed
 
 #### Method
 
-## Challenge 13: notuber
+## Challenge 13: notuber (Not Found)
 
 ### Problem
 
@@ -615,9 +600,9 @@ Packets in pcap file are all malformed
 ## What Would You Do Differently For Next Time? 
 - (Joel) I definitely would search for more available tools! Yucheng introduced me to Gobuster to find the available files, so I'm curious to know what other tools there
   are. I also so I spent of lot of unnecessary time by overcomplicating things, when in reality they were a lot simpler (like decrypting multiple times in a row). For the
-  future, I'd probably go with my gut instinct to try simple things first before making it more complicated. I also wish that I'd be able to do this in person! More of a personal
-  thing: While online is great for remote students, I'd love to be able to work in-person with folks tackling the same problems. I think it changes the dynamic and makes it more
-  fun! I'd be interested in doing more of these to practice 
+  future, I'd probably go with my gut instinct to try simple things first before making it more complicated.  More of a personal thing: I also would love to be able to do this in
+  person! While online is great for remote students, I'd love to be able to work in-person with folks tackling the same problems. I think it changes the dynamic and makes it more
+  fun and collaborative. 
 
 ```
 
