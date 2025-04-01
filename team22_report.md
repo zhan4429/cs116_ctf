@@ -356,7 +356,7 @@ SQL Injection
 
 #### Screenshot of flag
 
-(Please insert screenshot of 404 page and flag here)
+![image](https://github.com/user-attachments/assets/88b2f47a-9814-4808-a8ac-2de37bbf0f3c)
 
 #### Exact Location
 
