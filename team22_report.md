@@ -319,7 +319,7 @@ with open("decoded_final.bin", "wb") as f:
     f.write(data)
 ```
 
-- Joel: This one was funny seeing how many times we needed to run through Base64!
+- Joel: This one was fun seeing how many times we needed to run through Base64
 
 ## Challenge 3: .git the FLAG.
 
@@ -344,19 +344,26 @@ FLAG file from http://3.145.206.165/.git/ endpoint
 Once endpoint was uncovered using brute force adding /.git/ to the url we found a number of files and directories.
 One of which was a FLAG file once downloaded and viewed in Notepad exposed the flag.
 
-## Challenge 5: Don't ask me if something looks wrong. Look again, pay careful attention.
+## Challenge 5: Don't ask me if something looks wrong. Look again, pay careful attention. (Jackson Review)
 
 ### Problem
+Questionable login page... is there any way to bypass this without knowing the username? 
 
 ### Solution
+SQL Injection
 
 #### Screenshot of flag
+<img width="739" alt="image" src="https://github.com/user-attachments/assets/e1ce05e9-8126-4d7a-b93a-c6d0796a69c3" />
 
 #### Exact Location
+http://3.145.206.165/main.php
 
 #### Method
+- Seeing the login information, we tried different username & login passwords found (batman/BruceWayne from the data.txt, admin/password, etc.)
+- None of those seemed to be right, so attempting Injection we used: a' OR '1=1
+- We used "password" to start, but after some testing it turns out that as long as the injection is used in the username, it will always redirect you to the same page!
 
-## Challenge 6: Don't ask me if something looks wrong. Look again, pay really careful attention.
+## Challenge 6: Don't ask me if something looks wrong. Look again, pay really careful attention. (Jackson)
 
 ### Problem
 
