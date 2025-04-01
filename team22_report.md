@@ -356,6 +356,30 @@ SQL Injection
 
 #### Screenshot of flag
 
+(Please insert screenshot of 404 page and flag here)
+
+#### Exact Location
+
+http://3.145.206.165/main.php
+
+#### Method
+
+- Seeing the login information, we recalled homework 7 and decided to try sql injection. we tried different username & a' OR '1=1 as passwords but was not able to login
+- Eventually we decided to attempt SQL injection in both the username and password by entering a' OR '1=1 for both and was able to login. We were then directed to a 404 papge and the flag is not immediately accessible. However, we were able to locate the flag after clicking "inspect" on the webpage.
+- Note to Ming: We found this flag prior to game stoppage last week. After the game came back online, we were no longer able to find this flag. When we tried SQL injection on the same page referenced here, we were instead directed to the flag for challenge 6 (see below).
+
+## Challenge 6: Don't ask me if something looks wrong. Look again, pay really careful attention. (Jackson)
+
+### Problem
+
+Questionable login page... is there any way to bypass this without knowing the username?
+
+### Solution
+
+SQL Injection
+
+#### Screenshot of flag
+
 <img width="739" alt="image" src="https://github.com/user-attachments/assets/e1ce05e9-8126-4d7a-b93a-c6d0796a69c3" />
 
 #### Exact Location
@@ -366,19 +390,7 @@ http://3.145.206.165/main.php
 
 - Seeing the login information, we recalled homework 7 and decided to try sql injection. we tried different username & a' OR '1=1 as passwords but was not able to login
 - Eventually we decided to attempt SQL injection in both the username and password by entering a' OR '1=1 for both and was able to login. The flag is immediately available after we login.
-
-## Challenge 6: Don't ask me if something looks wrong. Look again, pay really careful attention. (Jackson)
-
-### Problem
-
-### Solution
-
-#### Screenshot of flag
-
-#### Exact Location
-
-#### Method
-
+  
 ## Challenge 7: That readme is peculiar...
 
 ### Problem
