@@ -364,8 +364,8 @@ http://3.145.206.165/main.php
 
 #### Method
 
-- Seeing the login information, we tried different username & login passwords found (batman/BruceWayne from the data.txt, admin/password, etc.)
-- None of those seemed to be right, so attempting Injection we used: a' OR '1=1
+- Seeing the login information, we recalled homework 7 and decided to try sql injection. we tried different username & a' OR '1=1 as passwords but was not able to login
+- Eventually we decided to attempt SQL injection in both the username and password by entering a' OR '1=1 for both and was able to login.
 - We used "password" to start, but after some testing it turns out that as long as the injection is used in the username, it will always redirect you to the same page!
 
 ## Challenge 6: Don't ask me if something looks wrong. Look again, pay really careful attention. (Jackson)
