@@ -389,6 +389,10 @@ http://3.145.206.165/main.php
 - Eventually we decided to attempt SQL injection in both the username and password by
   entering `a' OR '1=1` for both and was able to login. The flag is immediately available after we login.
 
+  
+- (Joel): Strangely enough, some of us got redirected to the 404, while the others got sent to the correct homepage with the same input... I even encountered the same issues using two different computers (my laptop could find the correct key, while my PC was not able to...) We tried for some time to understand
+  "Why"? but weren't able to decipher it in the end.
+
 ## Challenge 7: That readme is peculiar...
 
 ### Problem
