@@ -357,7 +357,7 @@ http://3.145.206.165/main.php
 - Seeing the login information, we recalled homework 7 and decided to try sql injection.
 - We tried different username & `a' OR '1=1` as passwords but was not able to login
 - Eventually we decided to attempt SQL injection in both the username and password
-  by entering `a' OR '1=1` for both and was able to login. We were then directed to a **404 papge** and
+  by entering `a' OR '1=1` for both and was able to login. We were then directed to a **404 page** and
   the flag is not immediately accessible. However, we were able to locate the flag after clicking
   **inspect** on the webpage.
 - **Note to Ming**: We found this flag prior to game stoppage last week. After the game came back online,
