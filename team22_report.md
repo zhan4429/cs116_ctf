@@ -311,7 +311,7 @@ with open("decoded_final.bin", "wb") as f:
     f.write(data)
 ```
 
-- Joel: This one was fun seeing how many times we needed to run through Base64!
+- Joel: Alternatively - plugging it into CyberChef and applying 19 Base46 decodes was mildly entertaining :) 
 
 ## Challenge 3: .git the FLAG.
 
