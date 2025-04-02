@@ -19,7 +19,7 @@
 
 ### Gobuster: Find hidden files and web directories
 
-Gobuster helped us solve several challenges by finding hidden files and directories that we couldn’t see just by browsing the site.
+[Gobuster](https://github.com/OJ/gobuster) helped us solve several challenges by finding hidden files and directories that we couldn’t see just by browsing the site.
 Before we explain how we solved each challenge, we’ll first show Gobuster outputs.
 These gave us clues like secret admin pages, robots.txt, .git, and cs40 homeworks that led us to the flags.
 
@@ -70,8 +70,13 @@ Finished
 
 ### WPScan: WordPress Security Scanner
 
-wpscan is a WordPress vulnerability scanner — it’s a command-line tool used to scan WordPress websites for known security issues.
-We first used WPScan to scan the server to identify vulnerabilities.
+[WPScan](https://wpscan.com) is a powerful command-line tool used to scan WordPress websites for known vulnerabilities.
+
+We used WPScan to analyze the target server and uncover various security issues.
+
+Similar to Gobuster, WPScan provided valuable information, such as the discovery of `readme.html` and access to directories like http://3.145.206.165/wp-content/uploads/.
+
+Additionally, WPScan helped us enumerate usernames, crack the password — detailed further in the `bobo` section.
 
 ```
 $ wpscan --url http://3.145.206.16
@@ -260,7 +265,7 @@ This problem is very straightforward.
 
 `xrl{4n247351p63n867os26q505q095p37284rsp3802087onpnp363n418184pp7506}`
 match the pattern of `key{xxxxxx}`.
-With rot13-decoder (https://cryptii.com/pipes/rot13-decoder), the text is decoded and and the key
+With [rot13-decoder](https://cryptii.com/pipes/rot13-decoder), the text is decoded and and the key
 `key{4a247351c63a867bf26d505d095c37284efc3802087bacac363a418184cc7506}` is revealed
 
 <img src="rotten.png" alt="Rotten Image" width="70%">
@@ -311,7 +316,7 @@ with open("decoded_final.bin", "wb") as f:
 
 ### Problem
 
-Find the flag, HINT: .git
+Find the flag, HINT: `.git`
 
 ### Solution
 
@@ -327,8 +332,7 @@ FLAG file from http://3.145.206.165/.git/ endpoint
 
 #### Method
 
-Once endpoint was uncovered using brute force adding /.git/ to the url we found a number of files and directories.
-One of which was a FLAG file once downloaded and viewed in Notepad exposed the flag.
+After uncovering a hidden endpoint by brute-forcing the URL with `/.git/`, we were able to access a number of files and directories exposed by the Git repository. Among these was a file named `FLAG`, which, once downloaded and opened in a text editor, revealed the flag.
 
 ## Challenge 5: Don't ask me if something looks wrong. Look again, pay careful attention
 
@@ -351,12 +355,12 @@ http://3.145.206.165/main.php
 #### Method
 
 - Seeing the login information, we recalled homework 7 and decided to try sql injection.
-- We tried different username & a' OR '1=1 as passwords but was not able to login
+- We tried different username & `a' OR '1=1` as passwords but was not able to login
 - Eventually we decided to attempt SQL injection in both the username and password
-  by entering a' OR '1=1 for both and was able to login. We were then directed to a 404 papge and
+  by entering `a' OR '1=1` for both and was able to login. We were then directed to a **404 papge** and
   the flag is not immediately accessible. However, we were able to locate the flag after clicking
-  "inspect" on the webpage.
-- Note to Ming: We found this flag prior to game stoppage last week. After the game came back online,
+  **inspect** on the webpage.
+- **Note to Ming**: We found this flag prior to game stoppage last week. After the game came back online,
   we were no longer able to find this flag. When we tried SQL injection on the same page referenced
   here, we were instead directed to the flag for challenge 6 (see below).
 
@@ -381,9 +385,9 @@ http://3.145.206.165/main.php
 #### Method
 
 - Seeing the login information, we recalled homework 7 and decided to try sql injection.
-- We tried different username & a' OR '1=1 as passwords but was not able to login
+- We tried different username & `a' OR '1=1` as passwords but was not able to login
 - Eventually we decided to attempt SQL injection in both the username and password by
-  entering a' OR '1=1 for both and was able to login. The flag is immediately available after we login.
+  entering `a' OR '1=1` for both and was able to login. The flag is immediately available after we login.
 
 ## Challenge 7: That readme is peculiar...
 
@@ -411,12 +415,12 @@ How many file extensions for readme could there be?
 
 We tried this the brute force way trying different file extensions until we got a bite
 
-readme.php
-readme.txt
-readme.png
-readme.html
+- readme.php-
+- readme.txt-
+- readme.png
+- readme.html
 
-We eventually found it again on Gobuster...
+We eventually found it again on `Gobuster`...
 
 ## Challenge 8: A whole bunch of CS40 homeworks found
 
@@ -438,11 +442,11 @@ One interesting directory we found was:
 http://3.145.206.165/wp-content/uploads/
 ```
 
-Inside, there are three folders named: 2022, 2024, and 2025. Under `2024/03`, we discovered CS40 homeworks:
+Inside, there are three folders named: **2022**, **2024**, and **2025**. Under `2024/03`, we discovered CS40 homeworks:
 
-<img src="cs40_homework.png" alt="cs40 homework" width="60%">
+<img src="cs40_homework.png" alt="cs40 homework" width="70%">
 
-While searching through these files for a flag, we found one named hello.docx. At first, we tried to open it in Microsoft Word,
+While searching through these files for a flag, we found one named `hello.docx`. At first, we tried to open it in Microsoft Word,
 but it didn’t render properly. So we checked the file type using `file`:
 
 ```
@@ -451,7 +455,9 @@ hello.docx: PDF document, version 1.7, 1 pages
 ```
 
 It identified the file as a PDF rather than a Word document.
-After renaming it to hello.pdf, We opened it and successfully found the flag inside the PDF.
+After renaming it to `hello.pdf`, We opened it and successfully found the flag inside the PDF.
+
+<img src="cs40_flag.png" alt="cs40 flag" width="70%">
 
 ## Challenge 10: About my friend bobo
 
@@ -467,6 +473,7 @@ Location of the flag will have something to do with Bo Bo
 Withi WPScan, we identified two users: `admin` and `bobo`
 
 ```
+$ wpscan --url http://3.145.206.165 --enumerate u
 [i] User(s) Identified:
 
 [+] admin
@@ -483,6 +490,8 @@ Withi WPScan, we identified two users: `admin` and `bobo`
 ```
 
 #### Crack passwords for admin and bobo
+
+To crack the passwords, we used `rockyou.txt` as the wordlist.
 
 ```
 
@@ -505,7 +514,7 @@ Trying admin / contraviento Time: 04:24:04 <== > (689415 / 28702202) 2.40% ETA: 
 Using username as `bobo` and Password as `Football`, I successfully logged in `http://3.145.206.165/wp-login.php`.
 <img src="login.png" alt="Login page" width="40%">
 
-And I found the flag in DashBoard:
+And I found the flag in Dashboard:
 
 <h1><img src="bobo_flag.png" alt="bobo flag" width="60%"></h1>
 
@@ -533,13 +542,13 @@ After some digging, we concluded it was used to log user keystrokes!
 
 After understanding that, we tested going to http://3.145.206.165/logger.php, since that's where it looked like everything was
 being directed to. To our surprise, we were met with a blank page didn't find anything noteable until inspecting the page...
-information on JohnHoder's Javascript Keylogger GitHub.
+information on **JohnHoder's Javascript Keylogger GitHub**.
 
 After finding the GitHub, we saw some information on how the logger worked and where it was sesnding information to be stored.
-But to where? Process of elimination... If it's not the .js or data.php file, it's probably the data.txt file right?
+But to where? Process of elimination... If it's not the `.js` or `data.php` file, it's probably the `data.txt` file right?
 
 Lo and behold - after plugging in http://3.145.206.165/data.txt, the key was listed there (along with a lot of other
-information input which we assume is from users submitting information to the board.php page.)
+information input which we assume is from users submitting information to the `board.php` page.)
 
 A fun goose chase to go from one point to another!
 
@@ -551,8 +560,20 @@ These are not the droids you're looking for...
 
 ### Solution
 
-http://3.145.206.165/robots.txt
+Gobuster helped me discovered `robots.txt`
+
+```
+/readme.html          (Status: 200) [Size: 7466]
+/robots.txt           (Status: 200) [Size: 8135]
+/wp-trackback.php     (Status: 200) [Size: 135]
+```
+
+On the `robots.txt` page, we found two disallowed paths listed.
+
 ![robots](robots.png)
+
+The first one let us to the flag, and the other one helped me locate the notuber page.
+
 http://3.145.206.165/JBlRNSJCIOBMCbExCdWFGUqtmjtNEZta.html
 
 Found the key `key{e27e4e386ce420468990d385fcb6e3c9762c234df437dd2f6789c06ba18ca7e1}`
@@ -576,12 +597,11 @@ I followed the UDP stream, and got the text in ASCII format:
 
 lol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflolwtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtf
 
-From the text, we can see that there are two strings, `lol` and `wtflol`.
-So I tried to replace `lol` with 0 and `wtflol` with 1 or `lol` with 1 and `wftlol` with 0.
+From the text, we observed two recurring strings: **lol** and **wtflol**. This suggested a potential binary encoding. I experimented by replacing **lol** with **0** and **wtflol** with **1**, as well as the reverse — replacing **lol** with **1** and **wtflol** with **0**.
 
-With the binary data, I converted it into ASCII text. It turns out lol`with 0 and`wtflol` with 1 makes senses.
+After converting the resulting binary data to ASCII text, I found that using **lol = 0** and **wtflol = 1** produced meaningful output.
 
-Here is the binary data by replacing `lol` with 0 and `wtflol` with 1:
+Here is the binary data obtained using that mapping:
 
 ```
 01100010 01110101 01110010 01101001 01100101 01100100 00100000 01101001
@@ -603,19 +623,16 @@ We tried similar way, unfortunately, we did not get the key.
 ## Executive Summary
 
 - Out of 15 flags (including the free flag), we captured 11 of the available flags.
-- Unfortunately, we were unable to capture any of the 400 point flags. We feel like we were close on some of them (like LOLCAP and All Your Base64 belong to us), but weren't able
-  to find the flags.
-- We all collaborated together to find the easier flags, and split up to take on the more challenging ones. We worked together on deciphering the clues and to tackle some of
-  struggles we encountered.
-- GoBuster and WordPress Scan were extremely valuable tools in helping to solve some of the challenges.
+- Unfortunately, we were unable to capture any of the 400 point flags. We feel like we were close on some of them (like LOLCAP and All Your Base64 belong to us), but weren't able to find the flags.
+- We all collaborated together to find the easier flags, and split up to take on the more challenging ones. We worked together on deciphering the clues and to tackle some of struggles we encountered.
+- **GoBuster** and **WordPress Scan** were extremely valuable tools in helping to solve some of the challenges.
 
 ## Lessons Learned
 
 - While the challenges seemed difficult, most of the challenges we solved were just extensions of what we had learned in class and required some out-of-the-box thinking.
 - There are many public tools available that are helpful for scraping and detecting vulnerabilities (Cyberchef, Gobuster, etc.)
-- It's very difficult to be completely invulnerable... This lab is setup to have varying levels of vulnerabilities, but as we learned from the examples discussed about in class,
-  schools, corporations, and even encryption companies have had vulnerabilities.
-- ALWAYS VALIDATE USER PROVIDED INPUT.
+- It's very difficult to be completely invulnerable... This lab is setup to have varying levels of vulnerabilities, but as we learned from the examples discussed about in class, schools, corporations, and even encryption companies have had vulnerabilities.
+- **ALWAYS VALIDATE USER PROVIDED INPUT**
 - Exploring the vulnebilities in this website helped us understand how simple design flaws can lead to serious security risks. Attackers can take over the server so easy, such as the message board.
 - (Joel) Inspecting the elements of a webpage has TONS of information - super cool to actually dig in to and see what lies underneath the hood!
 - (Yucheng)
@@ -625,19 +642,13 @@ We tried similar way, unfortunately, we did not get the key.
 
 ## Conclusions
 
-- (Joel) While we didn't get any of the 400 point flags, they all were "fair" - nothing out of the ordinary but it either took some extra steps or a modified approach to get
-  it right. In my opinion, it feels like some of it just comes from practice and seeing more and more examples - being able to identify what the problem is and come up with
-  different approaches that could break it.
-- (Yucheng) Playing CTF challanges is a very efficient approach to improve our cybersecurity skills. Security vulnerabilites can exist in unexpected places. We have to pay attention to details. Weak password is a serious security risk.
+- (Joel) While we didn't get any of the 400 point flags, they all were "fair" - nothing out of the ordinary but it either took some extra steps or a modified approach to get it right. In my opinion, it feels like some of it just comes from practice and seeing more and more examples - being able to identify what the problem is and come up with different approaches that could break it.
+- (Yucheng) Playing CTF challanges is a very efficient approach to improve our cybersecurity skills. Security vulnerabilites can exist in unexpected places. We have to pay attention to details. **Weak password is a serious security risk**.
 - (Chris) Definitely had a blast testing out the skills we've learned in class a very interactive way to learn from classmates and hone our skills. Strong passwords are definitely a must who knows what that admin password was.
 
 ## What Would You Do Differently For Next Time?
 
-- (Joel) I definitely would search for more available tools! Yucheng introduced me to Gobuster to find the available files, so I'm curious to know what other tools there
-  are. I also spent of lot of unnecessary time by overcomplicating things, when in reality they were a lot simpler (like decrypting multiple times in a row). For the
-  future, I'd probably go with my gut instinct to try simple things first before making it more complicated. More of a personal thing: I also would love to be able to do this in
-  person! While online is great for remote students, I'd love to be able to work in-person with folks tackling the same problems. I think it changes the dynamic and makes it more
-  fun and collaborative.
+- (Joel) I definitely would search for more available tools! Yucheng introduced me to Gobuster to find the available files, so I'm curious to know what other tools there are. I also spent of lot of unnecessary time by overcomplicating things, when in reality they were a lot simpler (like decrypting multiple times in a row). For the future, I'd probably go with my gut instinct to try simple things first before making it more complicated. More of a personal thing: I also would love to be able to do this in person! While online is great for remote students, I'd love to be able to work in-person with folks tackling the same problems. I think it changes the dynamic and makes it more fun and collaborative.
 - (Yucheng) I learnt that playing ctf and working in cybersecurity require us to have a broad range of skills. We need to understand how website, network, and database work. In our team, we realized none of us had strong knowledge in areas such as javascript, sql and web development. This might be the reason why we were not able to solve the 400-point challenges. We will improve our knowledge and skills in these fields. I also found that even if I learnt wireshark and burpsuite from class, my skills are not enough for me to solve real-world challenges. This requires me to have a deeper understanding and more hands-on practice.
 - (Chris) CTF games are very involved and there are so many tools to help find vulnerabilities. For the most part I think the more experience you have the better you are at finding the vulnerabilities. So I would definitely like to learn more ways to find vulnerabilities or interpret vulnerabilities in JavaScript code.
 - (Jackson) Through the ctf game, which reinforced many of the same concepts and tools we learnt in class, I came to appreciate that identifying/protecting against/exploiting cybersecurity issues require a very particular lense and familiarity with very particular concepts that take a lot of practice. And it's sometimes more efficient to first know and familiarize yourself with the issues and tricks before starting to solve the challenges, as opposed to sitting in front of the computer and just try to spin wheels. I would definitely go through the tricks and tools we learnt from class one more time if I could do this again before starting to work on the problems.
