@@ -5,22 +5,24 @@
 - Joel Han
 - Yucheng Zhang
 
-## Unsolved challenges:
 
-- Challenge 4: All your base64 are belong to us.
 
-- Challenge 9: Buried in the dump, redux: needle in the haystack.
+## Executive Summary
 
-- Challenge 13: LOLCAP.
+- This Capture the Flag challenged our ability to find a variety of vulnerabilities on a target site by "thinking like an attacker". Out of 15 flags, we successfully "captured" 11 of them and recorded our process of how we acquired (and in some cases stumbled!) upon the flags. 
+     - We worked together to decipher clues and tackle some of struggles we encountered (and indeed many struggles there were...)
+     - Out of the available flags, we were unable to capture any worth 400 points... which to say the least frustrated us to no end.
+          - Unsolved Flags: 4, 9, 13, 14  
+- There were several tools we used that were extremely valuable - we would have encountered many more difficulties without them pointing us in the right direction...
+- If given the opportunity to do another CTF, all of us would want to see/work through more examples! Like being thrown into the deep end of a pool to learn how to swim... there's no better way to learn than from hands-on experience.  
 
-- Challenge 14: notuber.
 
 ## Two VERY useful tools used in vulnerability scan
 
 ### Gobuster: Find hidden files and web directories
 
 [Gobuster](https://github.com/OJ/gobuster) helped us solve several challenges by finding hidden files and directories that we couldn’t see just by browsing the site.
-Before we explain how we solved each challenge, we’ll first show Gobuster outputs.
+Before diving into how we solved each challenge, we’ll first show Gobuster outputs.
 These gave us clues like secret admin pages, robots.txt, .git, and cs40 homeworks that led us to the flags.
 
 ```
@@ -288,7 +290,7 @@ A Flag Is Here… Blog Post
 
 #### Method
 
-This is a multi-layer Base64 encoded text. I used the below python script to decode 20 layers to finally got the key `key{5925189030bc2af596c7ccc8d925c292ca0e25165965caba71e9d5fafaebd744}`.
+This is a multi-layer Base64 encoded text. We used the below python script to decode 20 layers to finally got the key `key{5925189030bc2af596c7ccc8d925c292ca0e25165965caba71e9d5fafaebd744}`.
 
 ```
 import base64
@@ -310,7 +312,7 @@ with open("decoded_final.bin", "wb") as f:
     f.write(data)
 ```
 
-- Joel: This one was fun seeing how many times we needed to run through Base64
+- Joel: This one was fun seeing how many times we needed to run through Base64!
 
 ## Challenge 3: .git the FLAG.
 
@@ -511,10 +513,10 @@ Trying admin / contraviento Time: 04:24:04 <== > (689415 / 28702202) 2.40% ETA: 
 
 ```
 
-Using username as `bobo` and Password as `Football`, I successfully logged in `http://3.145.206.165/wp-login.php`.
+Using username as `bobo` and Password as `Football`, we successfully logged in `http://3.145.206.165/wp-login.php`.
 <img src="login.png" alt="Login page" width="40%">
 
-And I found the flag in Dashboard:
+And we found the flag in Dashboard:
 
 <h1><img src="bobo_flag.png" alt="bobo flag" width="60%"></h1>
 
@@ -593,13 +595,13 @@ Packets in pcap file are all malformed
 
 #### Wireshark
 
-I followed the UDP stream, and got the text in ASCII format:
+We followed the UDP stream, and got the text in ASCII format:
 
 lol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflolwtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtf
 
-From the text, we observed two recurring strings: **lol** and **wtflol**. This suggested a potential binary encoding. I experimented by replacing **lol** with **0** and **wtflol** with **1**, as well as the reverse — replacing **lol** with **1** and **wtflol** with **0**.
+From the text, we observed two recurring strings: **lol** and **wtflol**. This suggested a potential binary encoding.  experimented by replacing **lol** with **0** and **wtflol** with **1**, as well as the reverse — replacing **lol** with **1** and **wtflol** with **0**.
 
-After converting the resulting binary data to ASCII text, I found that using **lol = 0** and **wtflol = 1** produced meaningful output.
+After converting the resulting binary data to ASCII text, we found that using **lol = 0** and **wtflol = 1** produced meaningful output.
 
 Here is the binary data obtained using that mapping:
 
@@ -609,7 +611,7 @@ Here is the binary data obtained using that mapping:
 01111001 01110011 01110100 01100001 01100011 01101011 00101110
 ```
 
-I thought we got the key, but the result is disappointing, because the decoded text is `buried in the haystack.`
+We thought we got the key, but the result is disappointing, because the decoded text is `buried in the haystack.`
 
 <img src="lol_binary.png" width="50%">
 
@@ -620,18 +622,11 @@ We tried similar way, unfortunately, we did not get the key.
 
 <img src="uber.png" width="50%">
 
-## Executive Summary
-
-- Out of 15 flags (including the free flag), we captured 11 of the available flags.
-- Unfortunately, we were unable to capture any of the 400 point flags. We feel like we were close on some of them (like LOLCAP and All Your Base64 belong to us), but weren't able to find the flags.
-- We all collaborated together to find the easier flags, and split up to take on the more challenging ones. We worked together on deciphering the clues and to tackle some of struggles we encountered.
-- **GoBuster** and **WordPress Scan** were extremely valuable tools in helping to solve some of the challenges.
-
 ## Lessons Learned
 
 - While the challenges seemed difficult, most of the challenges we solved were just extensions of what we had learned in class and required some out-of-the-box thinking.
 - There are many public tools available that are helpful for scraping and detecting vulnerabilities (Cyberchef, Gobuster, etc.)
-- It's very difficult to be completely invulnerable... This lab is setup to have varying levels of vulnerabilities, but as we learned from the examples discussed about in class, schools, corporations, and even encryption companies have had vulnerabilities.
+- It's very difficult to be completely invulnerable... This lab is setup to have varying levels of vulnerabilities, but as we learned from the examples discussed about in class: schools, corporations, and even encryption companies are not invulnerable.
 - **ALWAYS VALIDATE USER PROVIDED INPUT**
 - Exploring the vulnebilities in this website helped us understand how simple design flaws can lead to serious security risks. Attackers can take over the server so easy, such as the message board.
 - (Joel) Inspecting the elements of a webpage has TONS of information - super cool to actually dig in to and see what lies underneath the hood!
