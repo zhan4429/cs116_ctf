@@ -9,9 +9,9 @@
 
 ## Executive Summary
 
-- Capture the Flag challenged our ability to find flags on a target site by "thinking like an attacker", with the goal of identifying and exploiting known vulnerabilities. Out of 15 flags, we successfully "captured" 11 of them and recorded our process of how we acquired (and in some cases stumbled!) upon the flags. 
-     - Out of the available flags, we were unable to capture any worth 400 points.
-          - Unsolved Flags: 4, 9, 13, 14  
+- Capture the Flag challenged our ability to find flags on a target site by "thinking like an attacker", with the goal of identifying and exploiting known vulnerabilities.
+- Out of 15 flags, we successfully "captured" 11 of them and recorded our process of how we acquired (and in some cases stumbled!) upon the flags. 
+     - Out of the available flags, we were unable to capture any worth 400 points. Unsolved Flags: 4, 9, 13, 14  
 - Several tools we used were extremely valuable and uncovered hidden files/repositories containing flags. 
 - We all gained hands-on experience and learned new skills that will prove valuable for us in the future.  
 
