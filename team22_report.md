@@ -627,10 +627,11 @@ We tried similar way, unfortunately, we did not get the key.
 - It's very difficult to be completely invulnerable... This lab is setup to have varying levels of vulnerabilities, but as we learned from the examples discussed about in class: schools, corporations, and even encryption companies are not invulnerable.
 - **ALWAYS VALIDATE USER PROVIDED INPUT**
 - Exploring the vulnebilities in this website helped us understand how simple design flaws can lead to serious security risks. Attackers can take over the server so easy, such as the message board.
-- (Joel) Inspecting the elements of a webpage has TONS of information - super cool to actually dig in to and see what lies underneath the hood!
+- (Joel)
+     - Inspecting the elements of a webpage has TONS of information - super cool to actually dig in to and see what lies underneath the hood!
 - (Yucheng)
   - Collaboration is important in solving ctf challenges and working in cybersecurity. Each memeber of our team comes from different background and have different set of skills. Looking at the challenges from different angles help us figure out solution much more efficient.
-  - (Chris) Using common file names that are easily guessable can be a vulnerability. But boy does it feel good to find a vulnerability!
+- (Chris) Using common file names that are easily guessable can be a vulnerability. But boy does it feel good to find a vulnerability!
   - For quite a few flags, if we locate the hidden pages, the flags are revealed. Hiding pages does not mean they are secure, we have to make sure they are not exposed to attackers.
 
 ## Conclusions
