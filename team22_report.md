@@ -10,6 +10,8 @@
 - Capture the Flag challenged our ability to find flags on a target site by "thinking like an attacker", with the goal of identifying and exploiting known vulnerabilities.
 - Out of 15 flags, we successfully "captured" 11 of them and recorded our process of how we acquired (and in some cases stumbled!) upon the flags.
   - Out of the available flags, we were unable to capture any worth 400 points. Unsolved Flags: 4, 9, 13, 14
+  - We made some progress for challenges 13, and 14, but we did not get the keys.
+  - For challenges 4 and 9, we were unable to find any leads or clues on where to begin.
 - Several tools we used were extremely valuable and uncovered hidden files/repositories containing flags.
 - We all gained hands-on experience and learned new skills that will prove valuable for us in the future.
 
@@ -17,7 +19,7 @@
 
 ### Gobuster: Find hidden files and web directories
 
-[Gobuster](https://github.com/OJ/gobuster) helped us solve several challenges by finding hidden files and directories that we couldn’t see just by browsing the site.
+Previously, I watched a YouTube Penetration test video, where I learnt about [Gobuster](https://github.com/OJ/gobuster) for hidden pages. For this CTF challenges, it seems that we need to look for some hidden pages. So I run Gobuster inside my Kali Linux VM, and it helped us solve several challenges by finding hidden files and directories that we couldn’t see just by browsing the site.
 Before diving into how we solved each challenge, we’ll first show Gobuster outputs.
 These gave us clues like secret admin pages, robots.txt, .git, and cs40 homeworks that led us to the flags.
 
@@ -74,7 +76,7 @@ We used WPScan to analyze the target server and uncover various security issues.
 
 Similar to Gobuster, WPScan provided valuable information, such as the discovery of `readme.html` and access to directories like http://3.145.206.165/wp-content/uploads/.
 
-Additionally, WPScan helped us enumerate usernames, crack the password — detailed further in the `bobo` section.
+Additionally, we ran WPScan with other parameters and it helped us enumerate usernames, crack the password — detailed further in the `bobo` section.
 
 ```
 $ wpscan --url http://3.145.206.16
@@ -288,7 +290,9 @@ A Flag Is Here… Blog Post
 
 #### Method
 
-This is a multi-layer Base64 encoded text. We used the below python script to decode 20 layers to finally got the key `key{5925189030bc2af596c7ccc8d925c292ca0e25165965caba71e9d5fafaebd744}`.
+This is a multi-layer Base64 encoded text. We decoded the text with two different approaches:
+
+We initially attempted to decode the text manually using CyberChef. However, after decoding one layer, we discovered that the output was encoded again. To automate the process, we wrote the python script below, using a for loop to repeatedly decode the text. After approximately 20 layers of decoding, we finally revealed `key{5925189030bc2af596c7ccc8d925c292ca0e25165965caba71e9d5fafaebd744}`.
 
 ```
 import base64
@@ -320,6 +324,10 @@ Find the flag, HINT: `.git`
 
 ### Solution
 
+#### Method
+
+After uncovering a hidden endpoint by brute-forcing the URL with `/.git/`, we were able to access a number of files and directories exposed by the Git repository. Among these was a file named `FLAG`, which, once downloaded and opened in a text editor, revealed the flag.
+
 #### Screenshot of flag
 
 ![Challenge 3 Flag](challenge_3_flag.PNG)
@@ -329,10 +337,6 @@ Find the flag, HINT: `.git`
 FLAG file from http://3.145.206.165/.git/ endpoint
 
 ![.git Directory](git_dir.PNG)
-
-#### Method
-
-After uncovering a hidden endpoint by brute-forcing the URL with `/.git/`, we were able to access a number of files and directories exposed by the Git repository. Among these was a file named `FLAG`, which, once downloaded and opened in a text editor, revealed the flag.
 
 ## Challenge 5: Don't ask me if something looks wrong. Look again, pay careful attention
 
@@ -374,6 +378,15 @@ Questionable login page... is there any way to bypass this without knowing the u
 
 SQL Injection
 
+#### Method
+
+- Seeing the login information, we recalled homework 7 and decided to try sql injection.
+- We tried different username & `a' OR '1=1` as passwords but was not able to login
+- Eventually we decided to attempt SQL injection in both the username and password by
+  entering `a' OR '1=1` for both and was able to login. The flag is immediately available after we login.
+
+- (Joel): Strangely enough, some of us got redirected to the 404, while the others got sent to the correct homepage with the same input... I even encountered the same issues using two different computers (my laptop could find the correct key, while my PC was not able to...) We tried for some time to understand
+
 #### Screenshot of flag
 
 ![Challenge 6 flag](https://github.com/user-attachments/assets/e1ce05e9-8126-4d7a-b93a-c6d0796a69c3){ width=500px }
@@ -382,16 +395,7 @@ SQL Injection
 
 http://3.145.206.165/main.php
 
-#### Method
-
-- Seeing the login information, we recalled homework 7 and decided to try sql injection.
-- We tried different username & `a' OR '1=1` as passwords but was not able to login
-- Eventually we decided to attempt SQL injection in both the username and password by
-  entering `a' OR '1=1` for both and was able to login. The flag is immediately available after we login.
-
-  
-- (Joel): Strangely enough, some of us got redirected to the 404, while the others got sent to the correct homepage with the same input... I even encountered the same issues using two different computers (my laptop could find the correct key, while my PC was not able to...) We tried for some time to understand
-  "Why"? but weren't able to decipher it in the end.
+"Why"? but weren't able to decipher it in the end.
 
 ## Challenge 7: That readme is peculiar...
 
@@ -402,16 +406,6 @@ Where is the repo?
 Can we git clone?
 
 ### Solution
-
-#### Screenshot of flag
-
-![Readme Spotted](readme_flag.PNG){ width=60% }
-
-#### Exact Location
-
-http://3.145.206.165/readme.html
-
-We found this flag on the readme page.
 
 #### Method
 
@@ -425,6 +419,16 @@ We tried this the brute force way trying different file extensions until we got 
 - readme.html
 
 We eventually found it again on `Gobuster`...
+
+#### Screenshot of flag
+
+![Readme Spotted](readme_flag.PNG){ width=60% }
+
+#### Exact Location
+
+http://3.145.206.165/readme.html
+
+We found this flag on the readme page.
 
 ## Challenge 8: A whole bunch of CS40 homeworks found
 
@@ -440,7 +444,7 @@ During our scan with WPSscan, several subpages revealed.
 wpscan --url http://3.145.206.165
 ```
 
-One interesting directory we found was:
+We opened every discovered pages. One interesting directory we found was:
 
 ```
 http://3.145.206.165/wp-content/uploads/
@@ -503,7 +507,7 @@ $ wpscan --url http://3.145.206.165 --passwords rockyou.txt --usernames admin,bo
 
 ```
 
-`admin`'s password was not cracked, but we got bobo's password: `Football`
+`admin`'s password was not cracked, but we got bobo's password: `Football`. We did not try other large wordlist, maybe we can also crack password for `admin` if we have more time.
 
 ```
 
@@ -530,14 +534,6 @@ A little bit of sneaky XSS will get us there.
 
 ### Solution
 
-#### Screenshot of flag
-
-![data.txt](https://github.com/user-attachments/assets/29d0490b-4ab0-4a58-b95f-67f0f5a3109c)
-
-#### Exact Location
-
-Key found at this URL: http://3.145.206.165/data.txt
-
 #### Method
 
 Inspected the board.php page and found there was a code snippet in the first comment. Compared to all the other comments, it
@@ -555,6 +551,14 @@ Lo and behold - after plugging in http://3.145.206.165/data.txt, the key was lis
 information input which we assume is from users submitting information to the `board.php` page.)
 
 A fun goose chase to go from one point to another!
+
+#### Screenshot of flag
+
+![data.txt](https://github.com/user-attachments/assets/29d0490b-4ab0-4a58-b95f-67f0f5a3109c)
+
+#### Exact Location
+
+Key found at this URL: http://3.145.206.165/data.txt
 
 ## Challenge 12: Where are the robots?
 
