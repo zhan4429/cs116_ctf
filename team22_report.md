@@ -630,15 +630,16 @@ We tried similar way, unfortunately, we did not get the key.
 - (Joel)
      - Inspecting the elements of a webpage has TONS of information - super cool to actually dig in to and see what lies underneath the hood!
 - (Yucheng)
-  - Collaboration is important in solving ctf challenges and working in cybersecurity. Each memeber of our team comes from different background and have different set of skills. Looking at the challenges from different angles help us figure out solution much more efficient.
-- (Chris) Using common file names that are easily guessable can be a vulnerability. But boy does it feel good to find a vulnerability!
-  - For quite a few flags, if we locate the hidden pages, the flags are revealed. Hiding pages does not mean they are secure, we have to make sure they are not exposed to attackers.
+     - Collaboration is important in solving ctf challenges and working in cybersecurity. Each memeber of our team comes from different background and have different set of skills. Looking at the challenges from different angles help us figure out solution much more efficient.
+- (Chris)
+     - Using common file names that are easily guessable can be a vulnerability. But boy does it feel good to find a vulnerability!
+     - For quite a few flags, if we locate the hidden pages, the flags are revealed. Hiding pages does not mean they are secure, we have to make sure they are not exposed to attackers.
 
 ## Conclusions
 
 - While the challenges seemed difficult, most of the challenges we solved were just extensions of what we had learned in class and required some out-of-the-box thinking.
-- (Joel) While we didn't get any of the 400 point flags, they all were "fair" - nothing out of the ordinary but it either took some extra steps or a modified approach to get it right. In my opinion, it feels like some of it just comes from practice and seeing more and more examples  
-  being able to identify what the problem is and come up with different approaches that could break it... I will say that not getting any of the 400 point flags was (and still is) frustrating. 
+- (Joel) While we didn't get any of the 400 point flags, they all were "fair" - nothing out of the ordinary but it either took some extra steps or a modified approach to get it right. In my opinion, it feels like some of it just comes from practice and seeing more and more examples to identify what the vulnerability
+  is and exploiting it... I will say that not getting any of the 400 point flags was (and still is) frustrating. Nevertheless, CTF's are a great way to hone our cybersecurity knowledge!
 - (Yucheng) Playing CTF challanges is a very efficient approach to improve our cybersecurity skills. Security vulnerabilites can exist in unexpected places. We have to pay attention to details. **Weak password is a serious security risk**.
 - (Chris) Definitely had a blast testing out the skills we've learned in class a very interactive way to learn from classmates and hone our skills. Strong passwords are definitely a must who knows what that admin password was.
 
