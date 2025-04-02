@@ -20,10 +20,13 @@
 ### Gobuster: Find hidden files and web directories
 
 Gobuster helped us solve several challenges by finding hidden files and directories that we couldn’t see just by browsing the site.
-Before we explain how we solved each challenge, we’ll first show Gobuster outputs. These gave us clues like secret admin pages, robots.txt, .git, and cs40 homeworks that led us to the flags.
+Before we explain how we solved each challenge, we’ll first show Gobuster outputs.
+These gave us clues like secret admin pages, robots.txt, .git, and cs40 homeworks that led us to the flags.
 
 ```
-gobuster dir -u http://3.145.206.165 -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -x php,html,js,json,txt
+gobuster dir -u http://3.145.206.165 \
+    -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt \
+    -x php,html,js,json,txt
 ===============================================================
 Gobuster v3.6
 by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
@@ -87,12 +90,7 @@ Interesting Finding(s):
  | Found By: Direct Access (Aggressive Detection)
  | Confidence: 100%
  | References:
- |  - http://codex.wordpress.org/XML-RPC_Pingback_API
- |  - https://www.rapid7.com/db/modules/auxiliary/scanner/http/wordpress_ghost_scanner/
- |  - https://www.rapid7.com/db/modules/auxiliary/dos/http/wordpress_xmlrpc_dos/
- |  - https://www.rapid7.com/db/modules/auxiliary/scanner/http/wordpress_xmlrpc_login/
- |  - https://www.rapid7.com/db/modules/auxiliary/scanner/http/wordpress_pingback_access/
-
+    xxxx
 [+] WordPress readme found: http://3.145.206.165/readme.html
  | Found By: Direct Access (Aggressive Detection)
  | Confidence: 100%
@@ -127,90 +125,76 @@ Interesting Finding(s):
  |     References:
  |      - https://wpscan.com/vulnerability/2999613a-b8c8-4ec0-9164-5dfe63adf6e6
  |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-2745
- |      - https://wordpress.org/news/2023/05/wordpress-6-2-1-maintenance-security-release/
  |
  | [!] Title: WP < 6.2.1 - Thumbnail Image Update via CSRF
  |     Fixed in: 6.2.1
  |     References:
  |      - https://wpscan.com/vulnerability/a03d744a-9839-4167-a356-3e7da0f1d532
- |      - https://wordpress.org/news/2023/05/wordpress-6-2-1-maintenance-security-release/
+
  |
  | [!] Title: WP < 6.2.1 - Contributor+ Stored XSS via Open Embed Auto Discovery
  |     Fixed in: 6.2.1
  |     References:
  |      - https://wpscan.com/vulnerability/3b574451-2852-4789-bc19-d5cc39948db5
- |      - https://wordpress.org/news/2023/05/wordpress-6-2-1-maintenance-security-release/
  |
  | [!] Title: WP < 6.2.2 - Shortcode Execution in User Generated Data
  |     Fixed in: 6.2.2
  |     References:
  |      - https://wpscan.com/vulnerability/ef289d46-ea83-4fa5-b003-0352c690fd89
- |      - https://wordpress.org/news/2023/05/wordpress-6-2-1-maintenance-security-release/
  |      - https://wordpress.org/news/2023/05/wordpress-6-2-2-security-release/
  |
  | [!] Title: WP < 6.2.1 - Contributor+ Content Injection
  |     Fixed in: 6.2.1
  |     References:
  |      - https://wpscan.com/vulnerability/1527ebdb-18bc-4f9d-9c20-8d729a628670
- |      - https://wordpress.org/news/2023/05/wordpress-6-2-1-maintenance-security-release/
  |
  | [!] Title: WP 5.6-6.3.1 - Contributor+ Stored XSS via Navigation Block
  |     Fixed in: 6.2.3
  |     References:
  |      - https://wpscan.com/vulnerability/cd130bb3-8d04-4375-a89a-883af131ed3a
  |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-38000
- |      - https://wordpress.org/news/2023/10/wordpress-6-3-2-maintenance-and-security-release/
  |
  | [!] Title: WP 5.6-6.3.1 - Reflected XSS via Application Password Requests
  |     Fixed in: 6.2.3
  |     References:
  |      - https://wpscan.com/vulnerability/da1419cc-d821-42d6-b648-bdb3c70d91f2
- |      - https://wordpress.org/news/2023/10/wordpress-6-3-2-maintenance-and-security-release/
  |
  | [!] Title: WP < 6.3.2 - Denial of Service via Cache Poisoning
  |     Fixed in: 6.2.3
  |     References:
  |      - https://wpscan.com/vulnerability/6d80e09d-34d5-4fda-81cb-e703d0e56e4f
- |      - https://wordpress.org/news/2023/10/wordpress-6-3-2-maintenance-and-security-release/
  |
  | [!] Title: WP < 6.3.2 - Subscriber+ Arbitrary Shortcode Execution
  |     Fixed in: 6.2.3
  |     References:
  |      - https://wpscan.com/vulnerability/3615aea0-90aa-4f9a-9792-078a90af7f59
- |      - https://wordpress.org/news/2023/10/wordpress-6-3-2-maintenance-and-security-release/
  |
  | [!] Title: WP < 6.3.2 - Contributor+ Comment Disclosure
  |     Fixed in: 6.2.3
  |     References:
  |      - https://wpscan.com/vulnerability/d35b2a3d-9b41-4b4f-8e87-1b8ccb370b9f
  |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-39999
- |      - https://wordpress.org/news/2023/10/wordpress-6-3-2-maintenance-and-security-release/
  |
  | [!] Title: WP < 6.3.2 - Unauthenticated Post Author Email Disclosure
  |     Fixed in: 6.2.3
  |     References:
  |      - https://wpscan.com/vulnerability/19380917-4c27-4095-abf1-eba6f913b441
  |      - https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-5561
- |      - https://wpscan.com/blog/email-leak-oracle-vulnerability-addressed-in-wordpress-6-3-2/
- |      - https://wordpress.org/news/2023/10/wordpress-6-3-2-maintenance-and-security-release/
  |
  | [!] Title: WordPress < 6.4.3 - Deserialization of Untrusted Data
  |     Fixed in: 6.2.4
  |     References:
  |      - https://wpscan.com/vulnerability/5e9804e5-bbd4-4836-a5f0-b4388cc39225
- |      - https://wordpress.org/news/2024/01/wordpress-6-4-3-maintenance-and-security-release/
  |
  | [!] Title: WordPress < 6.4.3 - Admin+ PHP File Upload
  |     Fixed in: 6.2.4
  |     References:
  |      - https://wpscan.com/vulnerability/a8e12fbe-c70b-4078-9015-cf57a05bdd4a
- |      - https://wordpress.org/news/2024/01/wordpress-6-4-3-maintenance-and-security-release/
  |
  | [!] Title: WP < 6.5.2 - Unauthenticated Stored XSS
  |     Fixed in: 6.2.5
  |     References:
  |      - https://wpscan.com/vulnerability/1a5c5df1-57ee-4190-a336-b0266962078f
- |      - https://wordpress.org/news/2024/04/wordpress-6-5-2-maintenance-and-security-release/
  |
  | [!] Title: WordPress < 6.5.5 - Contributor+ Stored XSS in HTML API
  |     Fixed in: 6.2.6
@@ -235,25 +219,21 @@ Interesting Finding(s):
  | Last Updated: 2024-11-13T00:00:00.000Z
  | Readme: http://3.145.206.165/wp-content/themes/twentysixteen/readme.txt
  | [!] The version is out of date, the latest version is 3.4
- | Style URL: http://3.145.206.165/wp-content/themes/twentysixteen/style.css?ver=20221101
  | Style Name: Twenty Sixteen
  | Style URI: https://wordpress.org/themes/twentysixteen/
- | Description: Twenty Sixteen is a modernized take on an ever-popular WordPress layout — the horizontal masthead wi...
+ | Description: Twenty Sixteen is a modernized take on an ever-popular WordPress
+   layout — the horizontal masthead wi...
  | Author: the WordPress team
  | Author URI: https://wordpress.org/
  |
- | Found By:
- |
- | Version: 2.8 (80% confidence)
- | Found By:
- |  - http://3.145.206.165/wp-content/themes/twentysixteen/style.css?ver=20221101, Match: 'Version: 2.8'
+
 
 [+] Enumerating All Plugins (via Passive Methods)
 
 [i] No plugins Found.
 
 [+] Enumerating Config Backups (via Passive and Aggressive Methods)
- Checking Config Backups - Time: 00:00:02 <============================================================================================================> (137 / 137) 100.00% Time: 00:00:02
+
 
 [i] No Config Backups Found.
 
@@ -263,19 +243,25 @@ Interesting Finding(s):
  | Requests Remaining: 23
 ```
 
-## Challenge 1: ROTten to the Core (Yucheng Zhang).
+## Challenge 1: ROTten to the Core
 
 ### Problem
 
-```
-Gubfr bs lbh jub ner gnxvat pbzchgre fpvrapr pynffrf va fpubby znl ng guvf cbvag or guvaxvat, bx, jr’ir tbg guvf fbegrq. Jr’er nyernql orvat gnhtug nyy nobhg cebtenzzvat. Ohg fbeel, guvf vf abg rabhtu. Lbh unir gb or jbexvat ba lbhe bja cebwrpgf, abg whfg yrneavat fghss va pynffrf. Lbh pna qb jryy va pbzchgre fpvrapr pynffrf jvgubhg rire ernyyl yrneavat gb cebtenz. Va snpg lbh pna tenqhngr jvgu n qrterr va pbzchgre fpvrapr sebz n gbc havirefvgl naq fgvyy abg or nal tbbq ng cebtenzzvat. Gung’f jul grpu pbzcnavrf nyy znxr lbh gnxr n pbqvat grfg orsber gurl’yy uver lbh, ertneqyrff bs jurer lbh jrag gb havirefvgl be ubj jryy lbh qvq gurer. Gurl xabj tenqrf naq rknz erfhygf cebir abguvat.
+Gubfr bs lbh jub ner gnxvat pbzchgre fpvrapr pynffrf va fpubby znl ng guvf cbvag or guvaxvat, bx,jr’ir tbg guvf fbegrq. Jr’er nyernql orvat gnhtug nyy nobhg cebtenzzvat. Ohg fbeel, guvf vf abg rabhtu. Lbh unir gb or jbexvat ba lbhe bja cebwrpgf, abg whfg yrneavat fghss va pynffrf. Lbh pna qb jryy va pbzchgre fpvrapr pynffrf jvgubhg rire ernyyl yrneavat gb cebtenz. Va snpg lbh pna tenqhngr jvgu n qrterr va pbzchgre fpvrapr sebz n gbc havirefvgl naq fgvyy abg or nal tbbq ng cebtenzzvat.
+Gung’f jul grpu pbzcnavrf nyy znxr lbh gnxr n pbqvat grfg orsber gurl’yy uver lbh, ertneqyrff bs jurer lbh jrag gb havirefvgl be ubj jryy lbh qvq gurer. Gurl xabj tenqrf naq rknzerfhygf cebir abguvat.
+
 xrl{4n247351p63n867os26q505q095p37284rsp3802087onpnp363n418184pp7506}
+
 uggcf://cnhytenunz.pbz/tbbtyr.ugzy
-```
 
 #### Method
 
-This problem is very straightforward. The string `xrl{4n247351p63n867os26q505q095p37284rsp3802087onpnp363n418184pp7506}`match the pattern of `key{xxxxxx}`. With rot13-decoder (https://cryptii.com/pipes/rot13-decoder), the text is decoded and and the key `key{4a247351c63a867bf26d505d095c37284efc3802087bacac363a418184cc7506}` is revealed
+This problem is very straightforward.
+
+`xrl{4n247351p63n867os26q505q095p37284rsp3802087onpnp363n418184pp7506}`
+match the pattern of `key{xxxxxx}`.
+With rot13-decoder (https://cryptii.com/pipes/rot13-decoder), the text is decoded and and the key
+`key{4a247351c63a867bf26d505d095c37284efc3802087bacac363a418184cc7506}` is revealed
 
 <img src="rotten.png" alt="Rotten Image" width="70%">
 
@@ -364,9 +350,15 @@ http://3.145.206.165/main.php
 
 #### Method
 
-- Seeing the login information, we recalled homework 7 and decided to try sql injection. we tried different username & a' OR '1=1 as passwords but was not able to login
-- Eventually we decided to attempt SQL injection in both the username and password by entering a' OR '1=1 for both and was able to login. We were then directed to a 404 papge and the flag is not immediately accessible. However, we were able to locate the flag after clicking "inspect" on the webpage.
-- Note to Ming: We found this flag prior to game stoppage last week. After the game came back online, we were no longer able to find this flag. When we tried SQL injection on the same page referenced here, we were instead directed to the flag for challenge 6 (see below).
+- Seeing the login information, we recalled homework 7 and decided to try sql injection.
+- We tried different username & a' OR '1=1 as passwords but was not able to login
+- Eventually we decided to attempt SQL injection in both the username and password
+  by entering a' OR '1=1 for both and was able to login. We were then directed to a 404 papge and
+  the flag is not immediately accessible. However, we were able to locate the flag after clicking
+  "inspect" on the webpage.
+- Note to Ming: We found this flag prior to game stoppage last week. After the game came back online,
+  we were no longer able to find this flag. When we tried SQL injection on the same page referenced
+  here, we were instead directed to the flag for challenge 6 (see below).
 
 ## Challenge 6: Don't ask me if something looks wrong. Look again, pay really careful attention
 
@@ -388,8 +380,10 @@ http://3.145.206.165/main.php
 
 #### Method
 
-- Seeing the login information, we recalled homework 7 and decided to try sql injection. we tried different username & a' OR '1=1 as passwords but was not able to login
-- Eventually we decided to attempt SQL injection in both the username and password by entering a' OR '1=1 for both and was able to login. The flag is immediately available after we login.
+- Seeing the login information, we recalled homework 7 and decided to try sql injection.
+- We tried different username & a' OR '1=1 as passwords but was not able to login
+- Eventually we decided to attempt SQL injection in both the username and password by
+  entering a' OR '1=1 for both and was able to login. The flag is immediately available after we login.
 
 ## Challenge 7: That readme is peculiar...
 
@@ -448,14 +442,16 @@ Inside, there are three folders named: 2022, 2024, and 2025. Under `2024/03`, we
 
 <img src="cs40_homework.png" alt="cs40 homework" width="60%">
 
-While searching through these files for a flag, we found one named hello.docx. At first, we tried to open it in Microsoft Word, but it didn’t render properly. So we checked the file type using `file`:
+While searching through these files for a flag, we found one named hello.docx. At first, we tried to open it in Microsoft Word,
+but it didn’t render properly. So we checked the file type using `file`:
 
 ```
 $ file hello.docx
 hello.docx: PDF document, version 1.7, 1 pages
 ```
 
-It identified the file as a PDF rather than a Word document. After renaming it to hello.pdf, we opened it and successfully found the flag inside the PDF.
+It identified the file as a PDF rather than a Word document.
+After renaming it to hello.pdf, We opened it and successfully found the flag inside the PDF.
 
 ## Challenge 10: About my friend bobo
 
@@ -578,11 +574,10 @@ Packets in pcap file are all malformed
 
 I followed the UDP stream, and got the text in ASCII format:
 
-```
-lol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtf
-```
+lol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflolwtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtf
 
-From the text, we can see that there are two strings, `lol` and `wtflol`. So I tried to replace `lol` with 0 and `wtflol` with 1 or `lol` with 1 and `wftlol` with 0.
+From the text, we can see that there are two strings, `lol` and `wtflol`.
+So I tried to replace `lol` with 0 and `wtflol` with 1 or `lol` with 1 and `wftlol` with 0.
 
 With the binary data, I converted it into ASCII text. It turns out lol`with 0 and`wtflol` with 1 makes senses.
 
@@ -600,7 +595,8 @@ I thought we got the key, but the result is disappointing, because the decoded t
 
 ## Challenge 14: notuber (Not Found)
 
-From `robots.txt`, we found the notuber page. We can also see some students already conducted XSS attacks to this page. We tried similar way, unfortunately, we did not get the key.
+From `robots.txt`, we found the notuber page. We can also see some students already conducted XSS attacks to this page.
+We tried similar way, unfortunately, we did not get the key.
 
 <img src="uber.png" width="50%">
 
