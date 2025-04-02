@@ -11,6 +11,7 @@
 - Out of 15 flags, we successfully "captured" 11 of them and recorded our process of how we acquired (and in some cases stumbled!) upon the flags.
   - Out of the available flags, we were unable to capture any worth 400 points. Unsolved Flags: 4, 9, 13, 14
   - We made some progress for challenges 13, and 14, but we did not get the keys.
+  - For challenges 4 and 9, we were unable to find any leads or clues on where to begin.
 - Several tools we used were extremely valuable and uncovered hidden files/repositories containing flags.
 - We all gained hands-on experience and learned new skills that will prove valuable for us in the future.
 
