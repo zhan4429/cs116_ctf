@@ -9,12 +9,11 @@
 
 ## Executive Summary
 
-- This Capture the Flag challenged our ability to find a variety of vulnerabilities on a target site by "thinking like an attacker". Out of 15 flags, we successfully "captured" 11 of them and recorded our process of how we acquired (and in some cases stumbled!) upon the flags. 
-     - We worked together to decipher clues and tackle some of struggles we encountered (and indeed many struggles there were...)
-     - Out of the available flags, we were unable to capture any worth 400 points... which to say the least frustrated us to no end.
+- Capture the Flag challenged our ability to find flags on a target site by "thinking like an attacker", with the goal of identifying and exploiting known vulnerabilities. Out of 15 flags, we successfully "captured" 11 of them and recorded our process of how we acquired (and in some cases stumbled!) upon the flags. 
+     - Out of the available flags, we were unable to capture any worth 400 points.
           - Unsolved Flags: 4, 9, 13, 14  
-- There were several tools we used that were extremely valuable - we would have encountered many more difficulties without them pointing us in the right direction...
-- If given the opportunity to do another CTF, all of us would want to see/work through more examples! Like being thrown into the deep end of a pool to learn how to swim... there's no better way to learn than from hands-on experience.  
+- Several tools we used were extremely valuable and uncovered hidden files/repositories containing flags. 
+- We all gained hands-on experience and learned new skills that will prove valuable for us in the future.  
 
 
 ## Two VERY useful tools used in vulnerability scan
@@ -624,7 +623,6 @@ We tried similar way, unfortunately, we did not get the key.
 
 ## Lessons Learned
 
-- While the challenges seemed difficult, most of the challenges we solved were just extensions of what we had learned in class and required some out-of-the-box thinking.
 - There are many public tools available that are helpful for scraping and detecting vulnerabilities (Cyberchef, Gobuster, etc.)
 - It's very difficult to be completely invulnerable... This lab is setup to have varying levels of vulnerabilities, but as we learned from the examples discussed about in class: schools, corporations, and even encryption companies are not invulnerable.
 - **ALWAYS VALIDATE USER PROVIDED INPUT**
@@ -637,13 +635,15 @@ We tried similar way, unfortunately, we did not get the key.
 
 ## Conclusions
 
-- (Joel) While we didn't get any of the 400 point flags, they all were "fair" - nothing out of the ordinary but it either took some extra steps or a modified approach to get it right. In my opinion, it feels like some of it just comes from practice and seeing more and more examples - being able to identify what the problem is and come up with different approaches that could break it.
+- While the challenges seemed difficult, most of the challenges we solved were just extensions of what we had learned in class and required some out-of-the-box thinking.
+- (Joel) While we didn't get any of the 400 point flags, they all were "fair" - nothing out of the ordinary but it either took some extra steps or a modified approach to get it right. In my opinion, it feels like some of it just comes from practice and seeing more and more examples  
+  being able to identify what the problem is and come up with different approaches that could break it... I will say that not getting any of the 400 point flags was (and still is) frustrating. 
 - (Yucheng) Playing CTF challanges is a very efficient approach to improve our cybersecurity skills. Security vulnerabilites can exist in unexpected places. We have to pay attention to details. **Weak password is a serious security risk**.
 - (Chris) Definitely had a blast testing out the skills we've learned in class a very interactive way to learn from classmates and hone our skills. Strong passwords are definitely a must who knows what that admin password was.
 
 ## What Would You Do Differently For Next Time?
 
-- (Joel) I definitely would search for more available tools! Yucheng introduced me to Gobuster to find the available files, so I'm curious to know what other tools there are. I also spent of lot of unnecessary time by overcomplicating things, when in reality they were a lot simpler (like decrypting multiple times in a row). For the future, I'd probably go with my gut instinct to try simple things first before making it more complicated. More of a personal thing: I also would love to be able to do this in person! While online is great for remote students, I'd love to be able to work in-person with folks tackling the same problems. I think it changes the dynamic and makes it more fun and collaborative.
+- (Joel) I definitely would search for more available tools! Yucheng introduced me to Gobuster to find the available files, so I'm curious to know what other tools there are. I also spent of lot of unnecessary time by overcomplicating things, when in reality they were a lot simpler (like decrypting multiple times in a row). For the future, I'd probably go with my gut instinct to try simple things first before making it more complicated. More of a personal thing: I also would love to be able to do this in person! While online is great for remote students, I'd love to be able to work in-person with folks tackling the same problems. I think it changes the dynamic and makes it more fun and collaborative. And most of all, like being thrown into the deep end of a pool to learn how to swim... there's no better way to learn than from hands-on experience.
 - (Yucheng) I learnt that playing ctf and working in cybersecurity require us to have a broad range of skills. We need to understand how website, network, and database work. In our team, we realized none of us had strong knowledge in areas such as javascript, sql and web development. This might be the reason why we were not able to solve the 400-point challenges. We will improve our knowledge and skills in these fields. I also found that even if I learnt wireshark and burpsuite from class, my skills are not enough for me to solve real-world challenges. This requires me to have a deeper understanding and more hands-on practice.
 - (Chris) CTF games are very involved and there are so many tools to help find vulnerabilities. For the most part I think the more experience you have the better you are at finding the vulnerabilities. So I would definitely like to learn more ways to find vulnerabilities or interpret vulnerabilities in JavaScript code.
 - (Jackson) Through the ctf game, which reinforced many of the same concepts and tools we learnt in class, I came to appreciate that identifying/protecting against/exploiting cybersecurity issues require a very particular lense and familiarity with very particular concepts that take a lot of practice. And it's sometimes more efficient to first know and familiarize yourself with the issues and tricks before starting to solve the challenges, as opposed to sitting in front of the computer and just try to spin wheels. I would definitely go through the tricks and tools we learnt from class one more time if I could do this again before starting to work on the problems.
