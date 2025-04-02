@@ -1,20 +1,17 @@
-# 2025 CTF Report from Team 22
+# 2025 Spring CTF Report from Team 22
 
 - Chris Talavera
 - Jackson Xu
 - Joel Han
 - Yucheng Zhang
 
-
-
 ## Executive Summary
 
 - Capture the Flag challenged our ability to find flags on a target site by "thinking like an attacker", with the goal of identifying and exploiting known vulnerabilities.
-- Out of 15 flags, we successfully "captured" 11 of them and recorded our process of how we acquired (and in some cases stumbled!) upon the flags. 
-     - Out of the available flags, we were unable to capture any worth 400 points. Unsolved Flags: 4, 9, 13, 14  
-- Several tools we used were extremely valuable and uncovered hidden files/repositories containing flags. 
-- We all gained hands-on experience and learned new skills that will prove valuable for us in the future.  
-
+- Out of 15 flags, we successfully "captured" 11 of them and recorded our process of how we acquired (and in some cases stumbled!) upon the flags.
+  - Out of the available flags, we were unable to capture any worth 400 points. Unsolved Flags: 4, 9, 13, 14
+- Several tools we used were extremely valuable and uncovered hidden files/repositories containing flags.
+- We all gained hands-on experience and learned new skills that will prove valuable for us in the future.
 
 ## Two VERY useful tools used in vulnerability scan
 
@@ -266,10 +263,12 @@ This problem is very straightforward.
 
 `xrl{4n247351p63n867os26q505q095p37284rsp3802087onpnp363n418184pp7506}`
 match the pattern of `key{xxxxxx}`.
-With [rot13-decoder](https://cryptii.com/pipes/rot13-decoder), the text is decoded and and the key
-`key{4a247351c63a867bf26d505d095c37284efc3802087bacac363a418184cc7506}` is revealed
 
-<img src="rotten.png" alt="Rotten Image" width="70%">
+With [rot13-decoder](https://cryptii.com/pipes/rot13-decoder), the text is decoded and and the below key is revealed
+
+`key{4a247351c63a867bf26d505d095c37284efc3802087bacac363a418184cc7506}`
+
+![Challenge 1 ROTten to the Core](rotten.png){ width=70% }
 
 ## Challenge 2: I hope I didn't make this too easy: another flag is on the blog.
 
@@ -311,7 +310,7 @@ with open("decoded_final.bin", "wb") as f:
     f.write(data)
 ```
 
-- Joel: Alternatively - plugging it into CyberChef and applying 19 Base46 decodes was mildly entertaining :) 
+- Joel: Alternatively - plugging it into CyberChef and applying 19 Base46 decodes was mildly entertaining :)
 
 ## Challenge 3: .git the FLAG.
 
@@ -347,7 +346,7 @@ SQL Injection
 
 #### Screenshot of flag
 
-![image](https://github.com/user-attachments/assets/88b2f47a-9814-4808-a8ac-2de37bbf0f3c)
+![Challenge 5 flag](https://github.com/user-attachments/assets/88b2f47a-9814-4808-a8ac-2de37bbf0f3c)
 
 #### Exact Location
 
@@ -377,7 +376,7 @@ SQL Injection
 
 #### Screenshot of flag
 
-<img width="739" alt="image" src="https://github.com/user-attachments/assets/e1ce05e9-8126-4d7a-b93a-c6d0796a69c3" />
+![Challenge 6 flag](https://github.com/user-attachments/assets/e1ce05e9-8126-4d7a-b93a-c6d0796a69c3){ width=500px }
 
 #### Exact Location
 
@@ -402,7 +401,7 @@ Can we git clone?
 
 #### Screenshot of flag
 
-<img src="readme_flag.PNG" alt="Readme Spotted" width="60%">
+![Readme Spotted](readme_flag.PNG){ width=60% }
 
 #### Exact Location
 
@@ -445,7 +444,7 @@ http://3.145.206.165/wp-content/uploads/
 
 Inside, there are three folders named: **2022**, **2024**, and **2025**. Under `2024/03`, we discovered CS40 homeworks:
 
-<img src="cs40_homework.png" alt="cs40 homework" width="70%">
+![cs40 homework](cs40_homework.png){ width=70% }
 
 While searching through these files for a flag, we found one named `hello.docx`. At first, we tried to open it in Microsoft Word,
 but it didn’t render properly. So we checked the file type using `file`:
@@ -458,7 +457,7 @@ hello.docx: PDF document, version 1.7, 1 pages
 It identified the file as a PDF rather than a Word document.
 After renaming it to `hello.pdf`, We opened it and successfully found the flag inside the PDF.
 
-<img src="cs40_flag.png" alt="cs40 flag" width="70%">
+![cs40 flag](cs40_flag.png){ width=70% }
 
 ## Challenge 10: About my friend bobo
 
@@ -529,7 +528,7 @@ A little bit of sneaky XSS will get us there.
 
 #### Screenshot of flag
 
-# ![data_txt](https://github.com/user-attachments/assets/29d0490b-4ab0-4a58-b95f-67f0f5a3109c)
+![data.txt](https://github.com/user-attachments/assets/29d0490b-4ab0-4a58-b95f-67f0f5a3109c)
 
 #### Exact Location
 
@@ -571,7 +570,7 @@ Gobuster helped me discovered `robots.txt`
 
 On the `robots.txt` page, we found two disallowed paths listed.
 
-![robots](robots.png)
+![robots.txt](robots.png)
 
 The first one let us to the flag, and the other one helped me locate the notuber page.
 
@@ -585,7 +584,7 @@ Found the key `key{e27e4e386ce420468990d385fcb6e3c9762c234df437dd2f6789c06ba18ca
 
 ### Problem
 
-<img src="wireshark_lol.PNG" alt="Wireshark lol.pcap" width="60%">
+![Wireshark lol.pcap](wireshark_lol.PNG){ width=60% }
 
 Download the LOLCAP.pcap file and find flag
 Packets in pcap file are all malformed
@@ -598,7 +597,7 @@ We followed the UDP stream, and got the text in ASCII format:
 
 lol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflolwtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtflol wtf
 
-From the text, we observed two recurring strings: **lol** and **wtflol**. This suggested a potential binary encoding.  experimented by replacing **lol** with **0** and **wtflol** with **1**, as well as the reverse — replacing **lol** with **1** and **wtflol** with **0**.
+From the text, we observed two recurring strings: **lol** and **wtflol**. This suggested a potential binary encoding. experimented by replacing **lol** with **0** and **wtflol** with **1**, as well as the reverse — replacing **lol** with **1** and **wtflol** with **0**.
 
 After converting the resulting binary data to ASCII text, we found that using **lol = 0** and **wtflol = 1** produced meaningful output.
 
@@ -612,14 +611,14 @@ Here is the binary data obtained using that mapping:
 
 We thought we got the key, but the result is disappointing, because the decoded text is `buried in the haystack.`
 
-<img src="lol_binary.png" width="50%">
+![Binary to ASCII](lol_binary.png){ width=50% }
 
 ## Challenge 14: notuber (Not Found)
 
 From `robots.txt`, we found the notuber page. We can also see some students already conducted XSS attacks to this page.
 We tried similar way, unfortunately, we did not get the key.
 
-<img src="uber.png" width="50%">
+![Challenge 14](uber.png){ width=50% }
 
 ## Lessons Learned
 
@@ -628,12 +627,12 @@ We tried similar way, unfortunately, we did not get the key.
 - **ALWAYS VALIDATE USER PROVIDED INPUT**
 - Exploring the vulnebilities in this website helped us understand how simple design flaws can lead to serious security risks. Attackers can take over the server so easy, such as the message board.
 - (Joel)
-     - Inspecting the elements of a webpage has TONS of information - super cool to actually dig in to and see what lies underneath the hood!
+  - Inspecting the elements of a webpage has TONS of information - super cool to actually dig in to and see what lies underneath the hood!
 - (Yucheng)
-     - Collaboration is important in solving ctf challenges and working in cybersecurity. Each memeber of our team comes from different background and have different set of skills. Looking at the challenges from different angles help us figure out solution much more efficient.
+  - Collaboration is important in solving ctf challenges and working in cybersecurity. Each memeber of our team comes from different background and have different set of skills. Looking at the challenges from different angles help us figure out solution much more efficient.
 - (Chris)
-     - Using common file names that are easily guessable can be a vulnerability. But boy does it feel good to find a vulnerability!
-     - For quite a few flags, if we locate the hidden pages, the flags are revealed. Hiding pages does not mean they are secure, we have to make sure they are not exposed to attackers.
+  - Using common file names that are easily guessable can be a vulnerability. But boy does it feel good to find a vulnerability!
+  - For quite a few flags, if we locate the hidden pages, the flags are revealed. Hiding pages does not mean they are secure, we have to make sure they are not exposed to attackers.
 
 ## Conclusions
 
