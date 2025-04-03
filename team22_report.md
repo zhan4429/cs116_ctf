@@ -435,14 +435,14 @@ Can we git clone?
 
 How many file extensions for readme could there be?
 
-We tried this the brute force way trying different file extensions until we got a bite
+Following the suggestion from AI about hidden files... we tried this the brute force way trying different file extensions until we got a bite (to which we did get one eventually!)
 
 - readme.php-
 - readme.txt-
 - readme.png
 - readme.html
 
-We eventually found it again on `Gobuster`...
+We also eventually found it again on `Gobuster`... might have saved some time otherwise, but nevertheless! We found it. 
 
 #### Screenshot of flag
 
