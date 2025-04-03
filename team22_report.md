@@ -398,7 +398,7 @@ SQL Injection
 
 #### Screenshot of flag
 
-![Challenge 6 flag](https://github.com/user-attachments/assets/e1ce05e9-8126-4d7a-b93a-c6d0796a69c3){ width=500px }
+![Challenge 6 flag](https://github.com/user-attachments/assets/e1ce05e9-8126-4d7a-b93a-c6d0796a69c3)
 
 #### Exact Location
 
@@ -418,14 +418,14 @@ Can we git clone?
 
 How many file extensions for readme could there be?
 
-Following the suggestion from AI about hidden files... we tried this the brute force way trying different file extensions until we got a bite (to which we did get one eventually!)
+Following the suggestion from AI about hidden files... we tried the brute force way trying different file extensions until we got a bite (to which we did get one eventually!)
 
 - readme.php-
 - readme.txt-
 - readme.png
 - readme.html
 
-We also eventually found it again on `Gobuster`... might have saved some time otherwise, but nevertheless! We found it. 
+We also eventually found it again on `Gobuster`... we might have saved some time otherwise, but nevertheless! We found it. :) 
 
 #### Screenshot of flag
 
@@ -485,7 +485,7 @@ Location of the flag will have something to do with Bo Bo
 
 #### Enumerate usernames with WPScan
 
-Withi WPScan, we identified two users: `admin` and `bobo`
+With WPScan, we identified two users: `admin` and `bobo`
 
 ```
 $ wpscan --url http://3.145.206.165 --enumerate u
@@ -514,7 +514,8 @@ $ wpscan --url http://3.145.206.165 --passwords rockyou.txt --usernames admin,bo
 
 ```
 
-`admin`'s password was not cracked, but we got bobo's password: `Football`. We did not try other large wordlist, maybe we can also crack password for `admin` if we have more time.
+`admin`'s password was not cracked, but we got bobo's password: `Football`. We did not try other large wordlist... maybe we can also crack password for `admin` if we have more
+time.
 
 ```
 
@@ -543,19 +544,17 @@ A little bit of sneaky XSS will get us there.
 
 #### Method
 
-Inspected the board.php page and found there was a code snippet in the first comment. Compared to all the other comments, it
-looked strangely out of place... so doing what a curious person should do: we dug deeper to figure out what exactly it did.
-After some digging, we concluded it was used to log user keystrokes!
+Inspected the board.php page and found there was a code snippet in the first comment. Compared to all the other comments, it looked strangely out of place... so doing what a
+curious person should do: we dug deeper to figure out what exactly it did. After some digging, we concluded it was used to log user keystrokes!
 
-After understanding that, we tested going to http://3.145.206.165/logger.php, since that's where it looked like everything was
-being directed to. To our surprise, we were met with a blank page didn't find anything noteable until inspecting the page...
-information on **JohnHoder's Javascript Keylogger GitHub**.
+After understanding that, we tested going to http://3.145.206.165/logger.php, since that's where it looked like everything was being directed to. To our surprise, we were met with
+a blank page didn't find anything noteable until inspecting the page... information on **JohnHoder's Javascript Keylogger GitHub**.
 
 After finding the GitHub, we saw some information on how the logger worked and where it was sesnding information to be stored.
 But to where? Process of elimination... If it's not the `.js` or `data.php` file, it's probably the `data.txt` file right?
 
-Lo and behold - after plugging in http://3.145.206.165/data.txt, the key was listed there (along with a lot of other
-information input which we assume is from users submitting information to the `board.php` page.)
+Lo and behold - after plugging in http://3.145.206.165/data.txt, the key was listed there (along with a lot of other information input which we assume is from users submitting
+information to the `board.php` page.)
 
 A fun goose chase to go from one point to another!
 
