@@ -404,23 +404,6 @@ SQL Injection
 
 http://3.145.206.165/main.php
 
-<<<<<<< HEAD
-"Why"? but weren't able to decipher it in the end.
-=======
-
-#### Method
-
-- Seeing the login information, we recalled homework 7 and decided to try sql injection.
-- We tried different username & `a' OR '1=1` as passwords but was not able to login
-- Eventually we decided to attempt SQL injection in both the username and password by entering `a' OR '1=1` for both and was able to login. The flag is immediately available after
-  we login.
-- What's the difference between this and Challenge 5? That is an excellent question... - (Joel): Strangely enough, some of us got redirected to the 404, while the others got sent to the correct homepage with the same input... I even encountered the same issues
-  using two different computers (my laptop could find the correct key, while my PC was not able to...) We tried for some time to understand "Why"? but weren't able to decipher
-  it in the end. (Post-Mortem) I took a look at the main.php, login.php, and admin.php files, and saw that if the COOKIE flag is set to TRUE, that it goes through. Now, to be
-  frank... I'm not 100% sure how this flag got set on my laptop. Maybe I had a crazy streak doing this at 2 a.m., set this to true, and promptly forgot about it, but now I
-  know!
-  > > > > > > > 5acfc347deb430c4d4a213941d65b8d9fcebeed9
-
 ## Challenge 7: That readme is peculiar...
 
 ### Problem
