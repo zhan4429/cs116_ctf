@@ -388,8 +388,8 @@ SQL Injection
 - (Joel): Strangely enough, some of us got redirected to the 404, while the others got sent to the correct homepage with the same input... I even encountered the same issues using
   two different computers (my laptop could find the correct key, while my PC was not able to...) We tried for some time to understand but couldn't determine why there was the
   difference.
-    - (POSTMORTEM!) Looking at the main.php, login.php, and admin.php files, I can see that the COOKIE flag needs to be set to TRUE in order to get the differnt key. To be frank -
-      I might have set this key in a crazed state when doing this at 3 in the morning and promptly forgot about it... Or maybe this got turned on when I changed some settings
+    - (POSTMORTEM!) Looking at the main.php, login.php, and admin.php files, we can see that the COOKIE flag needs to be set to TRUE in order to get the differnt key. To be frank -
+      we might have set this key in a crazed state when doing this at 3 in the morning and promptly forgot about it... Or maybe this got turned on when some settings we changed
       otherwise? But very cool to see!!
 
 #### Screenshot of flag
