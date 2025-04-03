@@ -314,7 +314,7 @@ with open("decoded_final.bin", "wb") as f:
     f.write(data)
 ```
 
-- Joel: Alternatively - plugging it into CyberChef and applying 19 Base46 decodes was mildly entertaining :)
+- Joel: Plugging it into CyberChef and applying 19 Base46 decodes was mildly entertaining :)
 
 ## Challenge 3: .git the FLAG.
 
@@ -326,7 +326,11 @@ Find the flag, HINT: `.git`
 
 #### Method
 
-After uncovering a hidden endpoint by brute-forcing the URL with `/.git/`, we were able to access a number of files and directories exposed by the Git repository. Among these was a file named `FLAG`, which, once downloaded and opened in a text editor, revealed the flag.
+We were a bit confused on this one - and like any normal person asked Google/AI for help. We learned that this is a file used to store history/changes. Additionally, AI suggested
+that this file might be "hidden" (which we learned was a common theme for the following challanges). So we tried and successfully uncovered a hidden endpoint by brute
+forcing the URL with `/.git/`. we were able to access a number of files and directories exposed by the Git repository. Among these was a file named `FLAG`, which, once downloaded
+and opened in a text editor, revealed the flag!
+
 
 #### Screenshot of flag
 
